@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<tiles-definitions>
+
+	<definition name="app.homepage" template="/WEB-INF/layouts/default.jsp">
+		<put-attribute name="title" value="Demo Page" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/tiles/login.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="home" extends="app.homepage">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="content" value="/WEB-INF/tiles/home.jsp" />
+	</definition>
+
+    <!--<definition name="index" extends="app.homepage">-->
+        <!--<put-attribute name="title" value="Index" />-->
+        <!--<put-attribute name="content" value="/WEB-INF/tiles/index.jsp" />-->
+    <!--</definition>-->
+
+    <definition name="login" extends="app.homepage">
+        <put-attribute name="title" value="Login" />
+        <put-attribute name="content" value="/WEB-INF/tiles/login.jsp" />
+    </definition>
+
+    <definition name="userregistration" extends="app.homepage">
+        <put-attribute name="title" value="User Registration" />
+        <put-attribute name="content" value="/WEB-INF/tiles/userregistration.jsp" />
+    </definition>
+    
+    <definition name="sendsms" extends="app.homepage">
+        <put-attribute name="title" value="Send Sms" />
+        <put-attribute name="content" value="/WEB-INF/tiles/sendsms.jsp" />
+    </definition>
+    
+    <definition name="sendsmsreport" extends="app.homepage">
+        <put-attribute name="title" value="Send Sms Report" />
+        <put-attribute name="content" value="/WEB-INF/tiles/sendsmsreport.jsp" />
+    </definition>
+    
+    <definition name="smssentreportdate" extends="app.homepage">
+        <put-attribute name="title" value="Sms Sent Report By Date" />
+        <put-attribute name="content" value="/WEB-INF/tiles/smssentreportdate.jsp" />
+    </definition>
+    
+    <definition name="smssentreportno" extends="app.homepage">
+        <put-attribute name="title" value="Sms Sent Report By Number" />
+        <put-attribute name="content" value="/WEB-INF/tiles/smssentreportno.jsp" />
+    </definition>
+    
+        
+    <definition name="allochistory" extends="app.homepage">
+        <put-attribute name="title" value="Allocation Hisory" />
+        <put-attribute name="content" value="/WEB-INF/tiles/allochistory.jsp" />
+    </definition>
+    
+    <definition name="contactmgnt" extends="app.homepage">
+        <put-attribute name="title" value="Contact Management" />
+        <put-attribute name="content" value="/WEB-INF/tiles/contactmgnt.jsp" />
+    </definition>
+    
+    <definition name="clientinfo" extends="app.homepage">
+        <put-attribute name="title" value="Client Information" />
+        <put-attribute name="content" value="/WEB-INF/tiles/clientinfo.jsp" />
+    </definition>
+    
+        <definition name="changepass" extends="app.homepage">
+        <put-attribute name="title" value="Change Password" />
+        <put-attribute name="content" value="/WEB-INF/tiles/changepass.jsp" />
+    </definition>
+    
+    
+    
+    
+</tiles-definitions>
+
