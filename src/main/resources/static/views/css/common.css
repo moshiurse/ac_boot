@@ -1,0 +1,34 @@
+@charset "ISO-8859-1";
+
+label {
+	color: white;
+}
+
+.card{
+	margin: 10px;
+	padding: 10px;
+    background: linear-gradient(#668BB3,#39567D);
+    width: 500px;
+    height: auto;
+}
+
+.card-header {
+	color: white;
+}
+.card-header img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+
+}
+
+.btn-acc{
+    border-radius: 50px;
+    padding: 5px 35px;
+    background: linear-gradient(to right, #f2f9fe, #d6f0fd);
+    transition: background 4s;
+}
+
+.btn-acc:hover{
+    background: linear-gradient(to right, #c3e3fa, #a5defb);
+}

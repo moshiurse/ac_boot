@@ -12,10 +12,17 @@
     <meta name="author" content="">
     
 	<title><tiles:insertAttribute name="title" /></title>
+	
+	<style type="text/css">	
+	body{
+		background: linear-gradient(to right, #C8E8FA,#3FBBF4);
+	}
+	</style>
 
    
     <!-- Bootstrap core CSS -->    
     <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/fontawesome/css/fontawesome.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/software-main.css" rel="stylesheet">
@@ -29,6 +36,7 @@
     
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/lib/fontawesome/js/fontawesome.js"></script>
     <script src="/js/jquery.dataTables.min.js"></script>    
     <script src="/js/myCustomJsFunctions.js"></script>
     <script src="/js/bootstrap-select.min.js"></script>
@@ -47,13 +55,17 @@
 
 </head>
 <body>
-
+<div>
 	<tiles:insertAttribute name="header" />
-	<br/>
+</div>
+
+<div>
 	<tiles:insertAttribute name="content" />
-    <br/>   
-    <tiles:insertAttribute name="footer"/>
-	
+</div>
+
+<div>
+	<tiles:insertAttribute name="footer" />
+</div>
     
 </body>
 </html>

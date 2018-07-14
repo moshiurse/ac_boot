@@ -101,6 +101,14 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 		
+<!-- https://mvnrepository.com/artifact/jasperreports/jasperreports -->
+<dependency>
+    <groupId>jasperreports</groupId>
+    <artifactId>jasperreports</artifactId>
+    <version>3.5.3</version>
+</dependency>
+
+		
 	</dependencies>
 
 	<build>

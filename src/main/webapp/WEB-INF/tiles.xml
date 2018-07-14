@@ -18,64 +18,67 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/home.jsp" />
 	</definition>
 
-    <!--<definition name="index" extends="app.homepage">-->
-        <!--<put-attribute name="title" value="Index" />-->
-        <!--<put-attribute name="content" value="/WEB-INF/tiles/index.jsp" />-->
-    <!--</definition>-->
-
     <definition name="login" extends="app.homepage">
         <put-attribute name="title" value="Login" />
         <put-attribute name="content" value="/WEB-INF/tiles/login.jsp" />
     </definition>
 
-    <definition name="userregistration" extends="app.homepage">
+    <definition name="registration" extends="app.homepage">
         <put-attribute name="title" value="User Registration" />
-        <put-attribute name="content" value="/WEB-INF/tiles/userregistration.jsp" />
+        <put-attribute name="content" value="/WEB-INF/tiles/registration.jsp" />
     </definition>
     
-    <definition name="sendsms" extends="app.homepage">
-        <put-attribute name="title" value="Send Sms" />
-        <put-attribute name="content" value="/WEB-INF/tiles/sendsms.jsp" />
-    </definition>
-    
-    <definition name="sendsmsreport" extends="app.homepage">
-        <put-attribute name="title" value="Send Sms Report" />
-        <put-attribute name="content" value="/WEB-INF/tiles/sendsmsreport.jsp" />
-    </definition>
-    
-    <definition name="smssentreportdate" extends="app.homepage">
-        <put-attribute name="title" value="Sms Sent Report By Date" />
-        <put-attribute name="content" value="/WEB-INF/tiles/smssentreportdate.jsp" />
-    </definition>
-    
-    <definition name="smssentreportno" extends="app.homepage">
-        <put-attribute name="title" value="Sms Sent Report By Number" />
-        <put-attribute name="content" value="/WEB-INF/tiles/smssentreportno.jsp" />
-    </definition>
-    
-        
-    <definition name="allochistory" extends="app.homepage">
-        <put-attribute name="title" value="Allocation Hisory" />
-        <put-attribute name="content" value="/WEB-INF/tiles/allochistory.jsp" />
-    </definition>
-    
-    <definition name="contactmgnt" extends="app.homepage">
-        <put-attribute name="title" value="Contact Management" />
-        <put-attribute name="content" value="/WEB-INF/tiles/contactmgnt.jsp" />
-    </definition>
-    
-    <definition name="clientinfo" extends="app.homepage">
-        <put-attribute name="title" value="Client Information" />
-        <put-attribute name="content" value="/WEB-INF/tiles/clientinfo.jsp" />
-    </definition>
-    
-        <definition name="changepass" extends="app.homepage">
+    <definition name="changepass" extends="app.homepage">
         <put-attribute name="title" value="Change Password" />
         <put-attribute name="content" value="/WEB-INF/tiles/changepass.jsp" />
     </definition>
     
+        
+    <definition name="crcompany" extends="app.homepage">
+        <put-attribute name="title" value="Create Company" />
+        <put-attribute name="content" value="/WEB-INF/tiles/crcompany.jsp" />
+    </definition>
+            
+    <definition name="employee" extends="app.homepage">
+        <put-attribute name="title" value="Employee" />
+        <put-attribute name="content" value="/WEB-INF/tiles/employee.jsp" />
+    </definition>
+                
+    <definition name="crfinyear" extends="app.homepage">
+        <put-attribute name="title" value="Financial Year" />
+        <put-attribute name="content" value="/WEB-INF/tiles/crfinyear.jsp" />
+    </definition>
+                    
+    <definition name="cropbalance" extends="app.homepage">
+        <put-attribute name="title" value="Opening Balance" />
+        <put-attribute name="content" value="/WEB-INF/tiles/cropbalance.jsp" />
+    </definition>
+    
+    <definition name="journal" extends="app.homepage">
+        <put-attribute name="title" value="Journal Entry" />
+        <put-attribute name="content" value="/WEB-INF/tiles/journal.jsp" />
+    </definition>
+    
+    <definition name="trialbalance" extends="app.homepage">
+        <put-attribute name="title" value="Trial Balance" />
+        <put-attribute name="content" value="/WEB-INF/tiles/trialbalance.jsp" />
+    </definition>
     
     
+    <definition name="ledger" extends="app.homepage">
+        <put-attribute name="title" value="General Ledger" />
+        <put-attribute name="content" value="/WEB-INF/tiles/ledger.jsp" />
+    </definition>
+        
+    <definition name="chartofaccount" extends="app.homepage">
+        <put-attribute name="title" value="Chart Of Account" />
+        <put-attribute name="content" value="/WEB-INF/tiles/chartofaccount.jsp" />
+    </definition>
+    
+    <definition name="voucher" extends="app.homepage">
+        <put-attribute name="title" value="Voucher" />
+        <put-attribute name="content" value="/WEB-INF/tiles/voucher.jsp" />
+    </definition>
     
 </tiles-definitions>
 
