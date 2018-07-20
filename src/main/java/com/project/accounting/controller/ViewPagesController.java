@@ -25,10 +25,10 @@ public class ViewPagesController {
 		return "registration";
 	}
 	
-	@RequestMapping("/crcompany")
+	@RequestMapping("/company")
 	public String showCreateCompany() {
 		
-		return "crcompany";
+		return "company";
 	}
 	
 	@RequestMapping("/employee")
@@ -37,16 +37,16 @@ public class ViewPagesController {
 		return "employee";
 	}
 	
-	@RequestMapping("/crfinyear")
+	@RequestMapping("/finyear")
 	public String showCreateFinancialYear() {
 		
-		return "crfinyear";
+		return "finyear";
 	}
 	
-	@RequestMapping("/cropbalance")
+	@RequestMapping("/opbalance")
 	public String showCreateOpeningBalance() {
 		
-		return "cropbalance";
+		return "opbalance";
 	}
 	
 	@RequestMapping("/journal")

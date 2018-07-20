@@ -16,13 +16,13 @@
 	<div class="card mx-auto text-center">
         <div class="card-header">
             <h1>Create financial year</h1>
-            <img class="img-fluid" src="img/logo.jpeg" alt="logo">
+            <hr>
         </div>
         <div class="card-body text-center">
             <form action="">
                 <div class="form-group">
                 	<label>Financial Year No </label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Financial Year No" name="finyearno" id="finyearno">
+                    <input required type="text" class="form-control form-control-lg" placeholder="Financial Year No" name="finyearno" id="finyearno">
                 </div>
                 
                 <div class="form-group">
@@ -37,12 +37,12 @@
                 
                 <div class="form-group">
                 	<label>Start Date </label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Start Date" name="startdate" id="startdate">
+                    <input required type="date" class="form-control form-control-lg" placeholder="Start Date" name="startdate" id="startdate">
                 </div>
                 
                 <div class="form-group">
                 <label>End Date </label>
-                    <input type="text" class="form-control form-control-lg" placeholder="End Date" name="enddate" id="enddate"> 
+                    <input required type="date" class="form-control form-control-lg" placeholder="End Date" name="enddate" id="enddate"> 
                 </div>
                 
                 <input type="submit" class="btn btn-lg btn-acc" value="Create Financial Year">

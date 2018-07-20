@@ -34,9 +34,9 @@
     </definition>
     
         
-    <definition name="crcompany" extends="app.homepage">
+    <definition name="company" extends="app.homepage">
         <put-attribute name="title" value="Create Company" />
-        <put-attribute name="content" value="/WEB-INF/tiles/crcompany.jsp" />
+        <put-attribute name="content" value="/WEB-INF/tiles/company.jsp" />
     </definition>
             
     <definition name="employee" extends="app.homepage">
@@ -44,14 +44,14 @@
         <put-attribute name="content" value="/WEB-INF/tiles/employee.jsp" />
     </definition>
                 
-    <definition name="crfinyear" extends="app.homepage">
+    <definition name="finyear" extends="app.homepage">
         <put-attribute name="title" value="Financial Year" />
-        <put-attribute name="content" value="/WEB-INF/tiles/crfinyear.jsp" />
+        <put-attribute name="content" value="/WEB-INF/tiles/finyear.jsp" />
     </definition>
                     
-    <definition name="cropbalance" extends="app.homepage">
+    <definition name="opbalance" extends="app.homepage">
         <put-attribute name="title" value="Opening Balance" />
-        <put-attribute name="content" value="/WEB-INF/tiles/cropbalance.jsp" />
+        <put-attribute name="content" value="/WEB-INF/tiles/opbalance.jsp" />
     </definition>
     
     <definition name="journal" extends="app.homepage">

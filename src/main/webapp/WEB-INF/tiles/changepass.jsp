@@ -25,7 +25,7 @@
 <label for="crps">Current Password:</label> 
 </div>
 <div class="col-md-6">
-<input type="text" name="crps" id="crps" class="form-control">
+<input required type="text" name="crps" id="crps" class="form-control">
 </div>
 <div class="col-md-3">
 <p class="alert"></p>
@@ -39,7 +39,7 @@
 <label for="newps">New Password:</label> 
 </div>
 <div class="col-md-6">
-<input type="text" name="newps" id="newps" class="form-control">
+<input required type="text" name="newps" id="newps" class="form-control">
 </div>
 <div class="col-md-3">
 <p class="alert"></p>
@@ -53,7 +53,7 @@
 <label for="crps">Confirm Password:</label> 
 </div>
 <div class="col-md-6">
-<input type="text" name="cnps" id="cnps" class="form-control">
+<input required type="text" name="cnps" id="cnps" class="form-control">
 </div>
 <div class="col-md-3">
 <p class="alert"></p>

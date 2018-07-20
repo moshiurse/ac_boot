@@ -16,37 +16,33 @@
 	<div class="card mx-auto text-center">
         <div class="card-header">
             <h1>Create Opening Balance</h1>
-            <img class="img-fluid" src="img/logo.jpeg" alt="logo">
+           	<hr>
         </div>
         <div class="card-body text-center">
             <form action="">
                 <div class="form-group">
                 	<label>Financial Year Id </label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Fianancial Year Id" name="finyearid" id="finyearid">
+                    <input required type="text" class="form-control form-control-lg" placeholder="Fianancial Year Id" name="finyearid" id="finyearid">
                 </div>
                 
                 <div class="form-group">
                 	<label>Account Head</label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Account Head" name="acchead" id="acchead">
+                    <input required type="text" class="form-control form-control-lg" placeholder="Account Head" name="acchead" id="acchead">
                 </div>
                 
                 <div class="form-group">
                 	<label>Project </label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Project" name="project" id="project">
+                    <input required type="text" class="form-control form-control-lg" placeholder="Project" name="project" id="project">
                 </div>
                 
                 <div class="form-group">
                 <label>Balance</label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Balance" name="balance" id="balance"> 
+                    <input required type="number" class="form-control form-control-lg" placeholder="Balance" name="balance" id="balance"> 
                 </div>
                 
                 <div class="form-group">
                 <label>Currency </label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Currency" name="currency" id="currency">
-                </div>
-                <div class="form-group">
-                <label>Company </label>
-                    <input type="text" class="form-control form-control-lg" placeholder="Company" name="company" id="company">
+                    <input required type="number" class="form-control form-control-lg" placeholder="Currency" name="currency" id="currency">
                 </div>
                 
                 <input type="submit" class="btn btn-lg btn-acc" value="Create Opening Balance">

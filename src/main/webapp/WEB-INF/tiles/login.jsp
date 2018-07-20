@@ -16,15 +16,27 @@
 	<div class="card mx-auto text-center">
         <div class="card-header">
             <h1>Login Panel</h1>
-            <img class="img-fluid" src="img/logo.jpeg" alt="logo">
+            <hr>
         </div>
         <div class="card-body text-center">
             <form action="">
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" placeholder="Username">
+                    <input required type="text" class="form-control form-control-lg" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" placeholder="Password">
+                    <input required type="password" class="form-control form-control-lg" placeholder="Password">
+                </div>
+                
+                <div class="form-group">
+                    <select id="company" name="company" class="form-control">
+                    <option>Select Company</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select id="finyear" name="finyear" class="form-control">
+                    <option>Select Financial Year</option>
+                    </select>
                 </div>
                 <div class="form-check text-center">
                     <input type="checkbox" class="form-check-input" id="check">

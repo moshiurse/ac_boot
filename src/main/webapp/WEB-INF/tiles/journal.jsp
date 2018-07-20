@@ -4,7 +4,7 @@
 <html>
 <head>
 <link href="views/css/common.css" rel="stylesheet"></link>
-<link href="views/css/journal.css" rel="stylesheet"></link>
+
 </head>
 <body>
 
@@ -12,16 +12,87 @@
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
 	
-	<div class="card mx-auto text-center">
+	<div class="card mx-auto text-center card-lg">
         <div class="card-header">
             <h1>Create Journal</h1>
-            <img class="img-fluid" src="img/logo.jpeg" alt="logo">
+           	<hr>
         </div>
         <div class="card-body">
             <form action="">
+            <div class="form-group">
+            <label class="col-md-2 control-label">voucher No: </label>
+            <div class="col-md-4">
+            <input type="number" name="voucherno" id="voucherno" class="form-control" disabled>
+            </div>
+            <label class="col-md-2 control-label">Voucher Date: </label>
+            <div class="col-md-4">
+            <input required type="date" name="vdate" id="vdate" class="form-control">
+            </div>
+            </div>
+            
+            <div class="form-group">
+			<label class="col-md-2 control-label">Account Head: </label>
+            <div class="col-md-4">
+            <input required type="text" name="ca" id="ca" class="form-control">
+            </div>
+            <label class="col-md-2 control-label">Project:  </label>
+            <div class="col-md-4">
+            <input required type="text" name="project" id="project" class="form-control">
+            </div>            
+            </div>
+            
+             <div class="form-group">
+			<label class="col-md-2 control-label">Department: </label>
+            <div class="col-md-4">
+            <input required type="text" name="dept" id="dept" class="form-control">
+            </div>
+            <label class="col-md-2 control-label">Bank Name:  </label>
+            <div class="col-md-4">
+            <input required type="text" name="bank" id="bank" class="form-control">
+            </div>            
+            </div>
+            
+            <div class="form-group">
+			<label class="col-md-2 control-label">Cheque No: </label>
+            <div class="col-md-4">
+            <input required type="number" name="chequeno" id="chequeno" class="form-control">
+            </div>
+            <label class="col-md-2 control-label">Reciept No:  </label>
+            <div class="col-md-4">
+            <input required type="text" name="mrno" id="mrno" class="form-control">
+            </div>            
+            </div>
+            
+            <div class="form-group">
+			<label class="col-md-2 control-label">Amount: </label>
+            <div class="col-md-10">
+            <input required type="number" name="amount" id="amount" class="form-control">
+            </div>
+            </div>
+            
+            <div class="form-group">
+			<label class="col-md-2 control-label">Narration: </label>
+            <div class="col-md-10">
+            <textarea rows="4" name="narration" id="narration" class="form-control"></textarea>
+            </div>
+            </div>
             
             
-               <input type="submit" class="btn btn-lg btn-acc" value="Registration">
+            <input type="submit" class="btn btn-lg btn-acc" value="Save">
+            
+   <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Account Head</th>
+        <th>Project</th>
+        <th>Department</th>
+        <th>Debit</th>
+        <th>Credit</th>
+      </tr>
+    </thead>
+    </table>
+    
+    <input type="submit" class="btn btn-lg btn-acc" value="Submit to Journal">
             </form>
         </div>
     </div>
