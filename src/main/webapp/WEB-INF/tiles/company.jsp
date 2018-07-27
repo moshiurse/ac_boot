@@ -57,7 +57,7 @@
                     <a href="#" class="btn btn-warning">Upload</a>
                 </div>
                 
-                <input type="submit" class="btn btn-lg btn-acc" value="Create Company">
+                <input type="submit" class="btn btn-lg btn-acc" value="Create Company" id="createcom">
             </form>
         </div>
     </div>

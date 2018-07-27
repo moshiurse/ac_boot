@@ -8,4 +8,8 @@ $(document).ready(function(){
 	var cwebsite = $.trim($('#cwebsite').val());
 	var clogo = $.trim($('#clogo').val());
 	
+	$("#createcom").click(function(event){
+		alert("Clicked");
+	});
+	
 });

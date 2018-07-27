@@ -1,116 +1,94 @@
 	$(document).ready(function(){
 		
-		//viewData();
-		function validator(){
+//		------- Function Calling   ----------------
+		initial();
+		checkedBox();
+		
+//		---------- End Function Calling--------------
+		
+//		------------ Function Unitial UI - -----------------
+		
+		function initial(){
+			$("#bank").prop('disabled', true);
+			$("#chequeno").prop('disabled', true);
+			$("#mrno").prop('disabled', true);
+
+		}		
+//		----------End Of Initial Ui  ---------------
+
+//	-----	CheckBox Event-------------
+
+		function checkedBox(){
 			
-			var voucherid	= $.trim($("#voucherid").val());
-			var date	= $.trim($("#date").val());
-			var project	= $.trim($("#project").val());
-			var client	= $.trim($("#client").val());
-			var dept	= $.trim($("#dept").val());
-			var invno	= $.trim($("#invno").val());
-			var chead	= $.trim($("#chead").val());
-			var debit	= $.trim($("#debit").val());
-			var credit	= $.trim($("#credit").val());
+			$('input[name="transactiontype"]').change(function(){
+				if(this.value == 1){
+					$("#bank").prop('disabled', true);
+					$("#chequeno").prop('disabled', true);
+					$("#mrno").prop('disabled', true);
+				}else if(this.value == 2){
+					$("#bank").prop('disabled', false);
+					$("#chequeno").prop('disabled', false);
+					$("#mrno").prop('disabled', false);
+				}
+			});
 			
-			if(voucherid == ""){		
-		   	 	$("#errorMessage").html("Please enter Voucher Id.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(date == ""){		
-		   	 	$("#errorMessage").html("Please enter Date.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(project == ""){		
-		   	 	$("#errorMessage").html("Please enter Project Data.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(client == "none"){		
-		   	 	$("#errorMessage").html("Please Selcet a Client.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(dept == "none"){		
-		   	 	$("#errorMessage").html("Please Select a Department.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(invno == ""){		
-		   	 	$("#errorMessage").html("Please enter Invoice No.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(chead == ""){		
-		   	 	$("#errorMessage").html("Please enter Control Head number.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(debit == ""){		
-		   	 	$("#errorMessage").html("Please enter Debit number.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
-			}
-			if(credit == ""){		
-		   	 	$("#errorMessage").html("Please enter Credit number.");
-		   	    $("#errorMessage").removeClass("hidden");
-		   	 	
-		   	    
-		   	    $("#successMessage").addClass("hidden");	         	      	 
-		        return false;		                
+		}
+		
+
+//		-------- End CheckBox Event-------------
+		
+//		-------- Validation -  ---------------
+		function validation(){
+			var voucherno = $.trim($('#voucherno').val());
+			var voucherdate = $.trim($('#vdate').val());
+			var chartofaccount = $.trim($('#ca').val());
+			var project = $.trim($('#project').val());
+			var department = $.trim($('#dept').val());
+			var bankname = $.trim($('#bank').val());
+			var chequeno = $.trim($('#chequeno').val());
+			var mrno = $.trim($('#mrno').val());
+			var amount = $.trim($('#amount').val());
+			var narration = $.trim($('#narration').val());
+			
+			var today = new Date();
+			alert("Vouycher" + voucherdate);
+			alert("today" + today);
+			var inputDate = new Date(voucherdate);
+			
+			if(voucherdate == ""){
+				$('#ervdate').text("Date");
+				return false;
+			}else if(today > inputDate){
+				$('#ervdate').text("Date Must be before today");
+				return false;
+			}else if(chartofaccount == ""){
+				$('#ervdate').text("Date");
+				return false;
+			}else if(project == ""){
+				$('#ervdate').text("Date");
+				return false;
+			}else if(department == ""){
+				$('#ervdate').text("Date");
+				return false;
+			}else if(chartofaccount == ""){
+				$('#ervdate').text("Date");
+				return false;
 			}
 			return true;
 		}
+//		--------- End Validation --------------
 		
+//		-------------- Add Click event  -------- ----
+		$('#add').click(function(event){
+			
+			if(validation()){
+				
+				alert("successfull");
+			}else {
+				alert("Failed");
+			}
+		});
 		
-		/* Submitting form to controller*/
-		$("#submit").click(function(event) {		
-			
-			event.preventDefault();
-			
-			
-			if (validator()){
-				var data = {};
-				data["voucherid"] = $("#voucherid").val();
-				data["date"] = $("#date").val();
-				data["project"] = $("#project").val();
-				data["client"] = $("#client").val();
-				data["dept"] = $("#dept").val();
-				data["invno"] = $("#invno").val();
-				data["chead"] = $("#chead").val();
-				data["debit"] = $("#debit").val();
-				data["credit"] = $("#credit").val();
-				alert(JSON.stringify(data));
-				$("#successMessage").removeClass("hidden");
-	
-			} // End of validation		
-		}); // End of form submission
-	
+//		------------ End Add Click Event   ----------------
 	
 	}); // End of document ready()

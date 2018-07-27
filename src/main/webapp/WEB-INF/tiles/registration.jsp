@@ -21,6 +21,7 @@
         </div>
         <div class="card-body text-center">
             <form action="">
+            
                 <div class="form-group">
                 	<label>Full Name </label>
                     <input required type="text" class="form-control form-control-lg" placeholder="Full Name" name="regfullname" id="regfullname">

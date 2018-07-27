@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Chart of Account</title>
+<script type="text/javascript" src="/views/js/chaartofaccount.js"></script>
+<link href="views/css/common.css" rel="stylesheet"></link>
+<link href="views/css/chaartofaccount.css" rel="stylesheet"></link>
 
 <script type="text/javascript">
 
@@ -406,114 +408,59 @@
 
 </head>
 <body>
-<div class="col-mid-12 col-lg-12" style="padding-top:140px;">
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-8">
 	
-	<form>
-		<div class="panel panel-primary">
-			<div class="panel-heading">CHART OF ACCOUNTS</div>
-		    <div class="panel-body">
-		     	<div class="col-md-12">
-		     		<div id="successMessage" align="center" class="hidden alert alert-success"></div>
-					<div id="errorMessage" align="center" class="hidden alert alert-danger"></div>
-		      	</div>
-			    <div class="col-md-12">
-					<div class="col-md-3">
-				      		<label>Control Code Level</label>
-				      </div>
-				      <div class="col-md-6">
-				      		<select name="caLevel" id="controlllevel" class="form-control" onchange="showDiv(this)">
-				      		<option value="1" selected="selected">One</option>
-				      		<option value="2">Two</option>
-				      		<option value="3">Three</option>
-				      		</select>
-				      </div>
-				      <div class="col-md-3">
-				      <input type="checkbox" name="display" value="display"><b> Display</b></div>
-				</div>
-				<div class="col-md-12" style="padding-top:5px" id="div1_1">
-				      <div class="col-md-3">
-				      		<label>Acc. Group</label>
-				      </div>
-				      <div class="col-md-6" id="accgroupdiv">
-				      </div>
-				      <div class="col-md-3"></div>
-				</div>
-				<div class="col-md-12" style="padding-top:5px; display: none;" id="div2_1">
-				      <div class="col-md-3">
-				      		<label>Acc. sub Group</label>
-				      </div>
-				      <div class="col-md-6" id="SubGroup">
-				      		
-				      </div>
-				      <div class="col-md-3"></div>
-				</div>
-				<div class="col-md-12" style="padding-top:5px" id="div1_2">
-				      <div class="col-md-3">
-				      		<label>Control Head</label>
-				      </div>
-				      <div class="col-md-6">
-				      		<div class="col-md-5"><input type="text" class="form-control" id="cHead_1"></div>
-				      		<div class="col-md-7"><input type="text" id="controlheadname_1" class="form-control"></div>
-				      </div>
-				      <div class="col-md-3" style="padding-top:7px">
-				      <a href="#" onclick="controlhead()"><span class="glyphicon glyphicon-plus-sign"></span></a>
-				      <a onclick="showControlhead()" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" ></span></a>
-				      </div>
-				</div>
-				<div class="col-md-12" style="padding-top:5px; display: none;" id="div2_2">
-				      <div class="col-md-3">
-				      		<label>Sub Control Head</label>
-				      </div>
-				      <div class="col-md-6">
-				      		<div class="col-md-5"><input type="text" class="form-control" id="cHead_2"></div>
-				      		<div class="col-md-7"><input type="text" id="controlheadname_2" class="form-control"></div>
-				      </div>
-				      <div class="col-md-3" style="padding-top:7px">
-				      <a href="#" onclick="subcontrolhead()"><span class="glyphicon glyphicon-plus-sign"></span></a>
-				      <a onclick="showSubControlhead()" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" ></span></a>
-				      </div>
-				</div>
-				<br>
-				<div class="col-md-12" style="padding-top:5px;display: none;" id="div3_1">
-				      <div class="col-md-3">
-				      		<label>Sub Sub Control Head</label>
-				      </div>
-				      <div class="col-md-6">
-				      		<div class="col-md-5"><input type="text" class="form-control" id="cHead_3"></div>
-				      		<div class="col-md-7"><input type="text" id="controlheadname_3" class="form-control"></div>
-					      </div>
-				      <div class="col-md-3" style="padding-top:7px">
-				      <a href="#" onclick="subsubcontrolhead()"><span class="glyphicon glyphicon-plus-sign" id="generateControlHead"></span></a>
-				      <a onclick="showSubSubControlhead()" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" ></span></a>
-				      </div>
-				</div>
-					<div class="col-md-12" style="padding-top:5px">
-							<label class="col-md-4 control-label" for="submit"></label>
-							<div class="col-md-6">
-								<input id="submit" type="button" name="submit" value="Save" class="btn btn-primary" />
-								<input id="btnClear" type="button" name="btnClear" value="Clear" class="btn btn-warning" />
-							</div>
-					</div>
-		      </div>
-		</div>	
-		</form>
+	<div class="card mx-auto text-center">
+        <div class="card-header">
+            <h1>Create Chart Of Account!</h1>
+            <hr>
+        </div>
+        <div class="card-body text-center">
+            <form action="">
+            
+            	<div class="form-group">
+                	<label>Head Id </label>
+                    <input required type="number" class="form-control form-control-lg" placeholder="Head ID" name="headid" id="headid">
+                    <span class="error" id="erheadid"></span>
+           		</div>
+                <div class="form-group">
+                	<label>Head Title</label>
+                    <input required type="text" class="form-control form-control-lg" placeholder="Head name" name="headname" id="headname">
+                    <span class="error" id="erheadname"></span>
+                </div>
+                
+                <div class="form-group">
+                	<label>Parent</label>
+                	<select id="parent" class="form-control">
+                	<option value="">Select Head</option>
+                	<option value="">Assset</option>
+                	<option>Owners Equity</option>
+                	<option>Revenue</option>
+                	<option>Expnse</option>
+                	</select>
+                    <span class="error" id="erparent"></span>
+                </div>
+                
+                <div class="form-group">
+                	<label>Type</label>
+                	<select id="type" class="form-control">
+                	<option value="">Select Type</option>
+                	<option value="">Debit</option>
+                	<option>Credit</option>
+                	</select>
+                    <span class="error" id="ertype"></span>
+                </div>
+                                      
+                <input type="submit" class="btn btn-lg btn-acc" value="Create Head" id="createhead">
+            </form>
+        </div>
+    </div>
+	
+	
+	</div>
 </div>
 
-<!-- Model -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Existing Data</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div id="datatable"></div>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 </html>

@@ -4,7 +4,7 @@ label {
 	color: white;
 }
 
-label, input, textarea {
+label, input, textarea, select {
 	margin-bottom: 5px;
 }
  img {

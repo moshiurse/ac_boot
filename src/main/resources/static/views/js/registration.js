@@ -8,11 +8,13 @@ $(document).ready(function(){
 	
 	var passwordlength = password.length;
 	var conpasslength = conpass.length;
+//	var emailpattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
 	
 	function checkfullname(){
 		if(fullname == ""){
 			$('#regfullname').addClass("invalid");
 			$('#regfullname').removeClass("valid");
+			$('#erfullname').text(fullname);
 			return false;
 		}else {
 			$('#regemail').addClass("valid");
@@ -23,14 +25,17 @@ $(document).ready(function(){
 	}
 	
 	function checkemail(){
-		
+		var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i 
 		if(email == ""){
 			$('#regemail').addClass("invalid");
 			$('#regemail').removeClass("valid");
 			return false;
+		}else if(!emailpattern.test(email)){
+			$("#eremail").text("Invalid Email");
 		}else {
 			$('#regemail').addClass("valid");
 			$('#regemail').removeClass("invalid");
+			$("#eremail").text("");
 			return true;
 		}
 		
@@ -81,18 +86,35 @@ $(document).ready(function(){
 	
 	
 	function validation (){
-		if(checkfullname() && checkemail() && checkusername() && checkpassword() && checkconpass()){
-			return true;
+		
+		if(!checkfullname()){
+			return false;
 		}
+		
+		if(!checkemail()){
+			return false;
+		}
+		
+		if(!checkusername()){
+			return false;
+		}
+		
+		if(!checkpassword()){
+			return false;
+		}
+		
+		return true;
 	}
 	
 	$('#registration').click(function(event){
+		event.preventDefault();
+
 		
-		if(validation()){
-			alert("Registered Successfully");
-		}else {
-			alert("Registered Failed!");
-		}
+//		if(validation()){
+//			alert("Registered Successfully");
+//		}else {
+//			alert("Registered Failed!");
+//		}
 		
 	});
 	
