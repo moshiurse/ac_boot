@@ -23,41 +23,55 @@
             <form action="">
                 <div class="form-group">
                 	<label>Company Name </label>
-                    <input required type="text" class="form-control form-control-lg" placeholder="Company Name" name="cname" id="cname">
+                    <input required type="text" class="form-control form-control-lg"
+                     placeholder="Company Name" name="cname" id="cname">
+                     <span class="error" id="ercname"></span>
                 </div>
                 
                 <div class="form-group">
                 	<label>Company Email </label>
-                    <input required type="text" class="form-control form-control-lg" placeholder="Company Email" name="cemail" id="ceamil">
+                    <input required type="text" class="form-control form-control-lg"
+                     placeholder="Company Email" name="cemail" id="ceamil">
+                     <span class="error" id="ercemail"></span>
                 </div>
                 
                 <div class="form-group">
                 	<label>Company Address </label>
-                    <input required type="text" class="form-control form-control-lg" placeholder="Company Address" name="caddress" id="caddress">
+                    <input required type="text" class="form-control form-control-lg"
+                     placeholder="Company Address" name="caddress" id="caddress">
+                     <span class="error" id="ercaddress"></span>
                 </div>
                 
                 <div class="form-group">
                 	<label>Phone </label>
-                    <input required type="number" class="form-control form-control-lg" placeholder="Phone Number" name="cphone" id="cphone">
+                    <input required type="number" class="form-control form-control-lg"
+                     placeholder="Phone Number" name="cphone" id="cphone">
+                     <span class="error" id="ercphone"></span>
                 </div>
                 
                 <div class="form-group">
                 <label>Fax </label>
-                    <input required type="text" class="form-control form-control-lg" placeholder="fax" name="cfax" id="cfax"> 
+                    <input type="text" class="form-control form-control-lg" 
+                    placeholder="fax" name="cfax" id="cfax"> 
+                    <span class="error" id="ercfax"></span>
                 </div>
                 
                 <div class="form-group">
                 <label>Website </label>
-                    <input required type="text" class="form-control form-control-lg" placeholder="Website" name="cwebsite" id="cwebsite">
+                    <input type="text" class="form-control form-control-lg"
+                     placeholder="Website" name="cwebsite" id="cwebsite">
+                     <span class="error" id="ercwebsite"></span>
                 </div>
                 
                 <div class="form-group">
                 <label>Upload a logo</label>
                     <input required type="file" class="form-control" name="clogo" id="clogo">
                     <a href="#" class="btn btn-warning">Upload</a>
+                    <span class="error" id="erclogo"></span>
                 </div>
                 
-                <input type="submit" class="btn btn-lg btn-acc" value="Create Company" id="createcom">
+                <input type="submit" class="btn btn-lg btn-acc" 
+                value="Create Company" id="createcompany">
             </form>
         </div>
     </div>

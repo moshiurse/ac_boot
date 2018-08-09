@@ -5,15 +5,19 @@ import java.util.List;
 import com.project.accounting.model.ChartOfAccount;
 
 public interface ChartOfAccountService {
-
-	ChartOfAccount saveCa(ChartOfAccount ca);
-
-	ChartOfAccount updateCa(ChartOfAccount ca);
-
-	void deleteCa(ChartOfAccount ca);
-
+	
+	ChartOfAccount saveCa(ChartOfAccount account);
+	
+	ChartOfAccount updateCa(ChartOfAccount account);
+	
+	void deleteCa(ChartOfAccount account);
+	
 	ChartOfAccount getCaById(int id);
-
+	
 	List<ChartOfAccount> getAllCa();
+	
+	
+	
+	
 
 }

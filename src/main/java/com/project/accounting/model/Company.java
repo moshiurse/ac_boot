@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "acc_company_information")
+@Table(name= "company")
 public class Company {
 	
 	@Id
@@ -37,7 +37,7 @@ public class Company {
 	@Column(name="logo")
 	private String companyLogo;
 	
-	@Column(name="website")
+	@Column(name="web_site")
 	private String companyWebsite;
 
 	public int getId() {

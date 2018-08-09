@@ -5,7 +5,7 @@ import java.util.List;
 import com.project.accounting.model.FinYear;
 
 public interface FinYearService {
-
+	
 	FinYear saveFinYear(FinYear finYear);
 
 	FinYear updateFinYear(FinYear finYear);
@@ -13,5 +13,7 @@ public interface FinYearService {
 	void deleteFinYear(FinYear finYear);
 
 	List<FinYear> getAllFinYear();
+	
+	List<FinYear> getFinYearByCompanyId(int companyId);
 
 }

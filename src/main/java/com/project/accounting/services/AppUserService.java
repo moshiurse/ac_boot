@@ -5,17 +5,17 @@ import java.util.List;
 import com.project.accounting.model.AppUser;
 
 public interface AppUserService {
+
+	AppUser saveUser(AppUser appUser);
 	
-	AppUser saveUser(AppUser user);
+	AppUser updateUser(AppUser appUser);
 	
-	AppUser updateUser(AppUser user);
-	
-	void deleteUser(AppUser user);
+	void deleteUser();
 	
 	AppUser getUserById(int id);
 	
 	List<AppUser> getAllUser();
 	
-	AppUser getUserByUserName(String name);
-
+	AppUser getUserByUserName(String username);
+	
 }

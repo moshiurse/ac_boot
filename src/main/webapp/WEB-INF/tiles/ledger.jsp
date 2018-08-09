@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="views/js/trialbalance.js"></script>
 <link href="views/css/common.css" rel="stylesheet"></link>
 <link href="views/css/ledger.css" rel="stylesheet"></link>
 </head>
@@ -16,7 +17,21 @@
 	<div class="card mx-auto text-center card-lg">
         <div class="card-header">
             <h1>General Ledger</h1>
-            <img class="img-fluid" src="img/logo.jpeg" alt="logo">
+            <div class="row">
+            <div class="col-md-3">
+            <div class="form-group">
+                    <input required type="date" class="form-control" 
+                    placeholder="Start Date" name="startdate" id="startdate">
+                </div>
+                </div>
+                <div class="col-md-3">
+                <div class="form-group">
+                    <input required type="date" class="form-control"
+                     placeholder="Finish Date" name="enddate" id="enddate">
+                </div>
+                </div>
+            <input type="submit" class="btn btn-lg btn-acc" value="Show" id="showledger">
+            </div>
         </div>
         <div class="card-body">
             
@@ -29,6 +44,7 @@
       </tr>
       <tr>
         <td></td>
+        <td>Particular</td>
         <th>Debit</th>
         <th>Credit</th>
         <th> Debit Balance</th>
@@ -38,18 +54,29 @@
 
       <tr>
         <td>1 September 14</td>
+        <td>Cash</td>
         <td></td>
         <td></td>
         <td>$ 6000</td>
       </tr>
       <tr>
         <td>4 September 14</td>
+        <td>
+        Department<br>
+        Account Head<br>
+        Narration
+        </td>
         <td>$ 5000</td>
         <td>$ 1000</td>
         <td>$ 10000</td>
       </tr>
       <tr>
         <td>5 September 14</td>
+        <td>
+        Department<br>
+        Account Head<br>
+        Narration
+        </td>
         <td></td>
         <td>$ 2000</td>
         <td>$ 8000</td>

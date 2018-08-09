@@ -20,7 +20,7 @@ public class FinYear {
 	private int finYearNo;
 	
 	@Column(name="comid")
-	private int finYearComid;
+	private int companyId;
 	
 	@Column(name="start_dt")
 	private String finYearStartDate;
@@ -47,12 +47,14 @@ public class FinYear {
 		this.finYearNo = finYearNo;
 	}
 
-	public int getFinYearComid() {
-		return finYearComid;
+
+
+	public int getCompanyId() {
+		return companyId;
 	}
 
-	public void setFinYearComid(int finYearComid) {
-		this.finYearComid = finYearComid;
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
 
 	public String getFinYearStartDate() {
@@ -79,14 +81,12 @@ public class FinYear {
 		this.createdBy = createdBy;
 	}
 
+	
 	@Override
 	public String toString() {
-		return "FinYear [finYearId=" + finYearId + ", finYearNo=" + finYearNo + ", finYearComid=" + finYearComid
+		return "FinYear [finYearId=" + finYearId + ", finYearNo=" + finYearNo + ", companyId=" + companyId
 				+ ", finYearStartDate=" + finYearStartDate + ", finYearEndDate=" + finYearEndDate + ", createdBy="
 				+ createdBy + "]";
-	}
-	
-	
-	
+	}	
 	
 }

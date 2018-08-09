@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.accounting.model.AppUser;
-import com.project.accounting.services.AppUserService;
+import com.project.accounting.servicesImpl.AppUserServiceImpl;
 
 @Controller
 public class AppUserController {
 	
 	@Autowired
-	private AppUserService appUserService;
+	private AppUserServiceImpl appUserService;
 	
 	@RequestMapping("/saveuser")
 	public String saveUser(AppUser user) {

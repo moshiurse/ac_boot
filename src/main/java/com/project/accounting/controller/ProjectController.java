@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.accounting.model.Project;
-import com.project.accounting.services.ProjectService;
+import com.project.accounting.servicesImpl.ProjectService;
 
 @Controller
 public class ProjectController {

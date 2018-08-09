@@ -26,12 +26,11 @@
                 <div class="form-group">
                     <input required type="password" class="form-control form-control-lg" placeholder="Password">
                 </div>
-                
                 <div class="form-group">
-                    <select id="company" name="company" class="form-control">
-                    <option>Select Company</option>
-                    </select>
+                <div id="divcompany">
                 </div>
+                </div>
+                
                 
                 <div class="form-group">
                     <select id="finyear" name="finyear" class="form-control">

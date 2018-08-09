@@ -15,28 +15,28 @@ import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 
 @Entity
-@Table(name="acc_voucher_master")
+@Table(name="voucher_master")
 public class VoucherMaster{
 	
 	//private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name ="vm_vno")
+	@Column(name ="voucherno")
 	private String voucherNo;
 	
-	@Column(name ="vm_vdate")
+	@Column(name ="date")
 	private String voucherDate;
 	
-	@Column(name ="vm_fin_year")
+	@Column(name ="fin_year")
 	private int finYear;
 	
-	@Column(name ="vm_curr")
-	private String current;
+	@Column(name ="currency")
+	private String currency;
 	
-	@Column(name ="vm_narration")
+	@Column(name ="narration")
 	private String narration;
 	
-	@Column(name ="vm_active")
+	@Column(name ="active")
 	private String active;
 	
 	@Column(name ="description")
@@ -48,7 +48,7 @@ public class VoucherMaster{
 	@Column(name ="verified_date")
 	private String verifiedDate;
 	
-	@Column(name ="voucher_status")
+	@Column(name ="status")
 	private String voucherStatus;
 	
 	@Column(name ="company_id")
@@ -57,7 +57,7 @@ public class VoucherMaster{
 	@Column(name ="vm_created_by")
 	private String createdBy;
 	
-	@Transient
+	@OneToMany(mappedBy = "voucherNo", fetch = FetchType.EAGER)
 	private List<VoucherDetail> voucherDetails;
 	
 	
@@ -87,11 +87,11 @@ public class VoucherMaster{
 	}
 
 	public String getCurrent() {
-		return current;
+		return currency;
 	}
 
 	public void setCurrent(String current) {
-		this.current = current;
+		this.currency = current;
 		
 	}
 
@@ -177,7 +177,7 @@ public class VoucherMaster{
 	@Override
 	public String toString() {
 		return "VoucherMaster [voucherNo=" + voucherNo + ", voucherDate=" + voucherDate + ", finYear=" + finYear
-				+ ", current=" + current + ", narration=" + narration + ", active=" + active + ", description="
+				+ ", current=" + currency + ", narration=" + narration + ", active=" + active + ", description="
 				+ description + ", verifiedBy=" + verifiedBy + ", verifiedDate=" + verifiedDate + ", voucherStatus="
 				+ voucherStatus + ", companyId=" + companyId + ", createdBy=" + createdBy + "]";
 	}

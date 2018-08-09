@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Null;
 
 @Entity
-@Table(name="acc_voucher_detail")
+@Table(name="voucher_detail")
 public class VoucherDetail implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -26,47 +26,44 @@ public class VoucherDetail implements Serializable {
 	@Column(name="id")
 	private Integer detailId;
 	
-	@Column(name ="vd_sl_no")
+	@Column(name ="sl_no")
 	private Byte serialNo;
 	
 	@ManyToOne
-	@JoinColumn(name ="vd_vno")
-	private VoucherMaster voucherMaster;
+	@JoinColumn(name ="voucherno")
+	private VoucherMaster voucherNo;
 	
-	@Column(name ="vd_ca_id")
+	@Column(name ="ca_id")
 	private String chartOfAccId;
 	
-	@Column(name ="vd_project_code")
+	@Column(name ="project_id")
 	private String projectCode;
 	
-	@Column(name ="vd_deptId")
+	@Column(name ="dept_id")
 	private String departmentId;
 	
-	@Column(name ="vd_debit")
+	@Column(name ="debit")
 	private double debit;
 	
-	@Column(name ="vd_credit")
+	@Column(name ="credit")
 	private double credit;
 	
-	@Column(name ="vd_chq_no")
+	@Column(name ="chq_no")
 	private String chequeNo;
 	
 	@Column(name ="booking_id")
 	private int bookingId;
 	
-	@Column(name ="vd_bill_no")
+	@Column(name ="bill_no")
 	private String billNo;
 	
-	@Column(name ="vd_inv_no")
-	private String invoiceNo;
-	
-	@Column(name ="vd_mr_no")
+	@Column(name ="mr_no")
 	private String mrNo;
 	
-	@Column(name ="vd_desc")
+	@Column(name ="description")
 	private String description;
 	
-	@Column(name ="vd_bank_id")
+	@Column(name ="bank_id")
 	private int bankId;
 	
 	@Column(name ="bandle_number")
@@ -99,13 +96,13 @@ public class VoucherDetail implements Serializable {
 	}
 
 
-	public VoucherMaster getVoucherMaster() {
-		return voucherMaster;
+	public VoucherMaster getVoucherNo() {
+		return voucherNo;
 	}
 
 
-	public void setVoucherMaster(VoucherMaster voucherMaster) {
-		this.voucherMaster = voucherMaster;
+	public void setVoucherNo(VoucherMaster voucherNo) {
+		this.voucherNo = voucherNo;
 	}
 
 
@@ -173,14 +170,7 @@ public class VoucherDetail implements Serializable {
 		this.billNo = billNo;
 	}
 
-	public String getInvoiceNo() {
-		return invoiceNo;
-	}
-
-	public void setInvoiceNo(String invoiceNo) {
-		this.invoiceNo = invoiceNo;
-	}
-
+	
 	public String getMrNo() {
 		return mrNo;
 	}
@@ -213,16 +203,13 @@ public class VoucherDetail implements Serializable {
 		this.bandleNo = bandleNo;
 	}
 
-
 	@Override
 	public String toString() {
-		return "VoucherDetail [detailId=" + detailId + ", serialNo=" + serialNo + ", voucherMaster=" + voucherMaster
+		return "VoucherDetail [detailId=" + detailId + ", serialNo=" + serialNo + ", voucherMaster=" + voucherNo
 				+ ", chartOfAccId=" + chartOfAccId + ", projectCode=" + projectCode + ", departmentId=" + departmentId
 				+ ", debit=" + debit + ", credit=" + credit + ", chequeNo=" + chequeNo + ", bookingId=" + bookingId
-				+ ", billNo=" + billNo + ", invoiceNo=" + invoiceNo + ", mrNo=" + mrNo + ", description=" + description
-				+ ", bankId=" + bankId + ", bandleNo=" + bandleNo + "]";
+				+ ", billNo=" + billNo + ", mrNo=" + mrNo + ", description=" + description + ", bankId=" + bankId
+				+ ", bandleNo=" + bandleNo + "]";
 	}
-
-	
 
 }

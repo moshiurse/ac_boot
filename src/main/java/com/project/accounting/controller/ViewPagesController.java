@@ -78,5 +78,11 @@ public class ViewPagesController {
 		
 		return "voucher";
 	}
+	
+	@RequestMapping("/pdftest")
+	public String showPdfTest() {
+		
+		return "pdftest";
+	}
 
 }

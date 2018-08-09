@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	alert("Worked");
+	
 	var fullname = $.trim($('#regfullname').val());
 	var email = $.trim($('#regemail').val());
 	var username = $.trim($('#regusername').val());

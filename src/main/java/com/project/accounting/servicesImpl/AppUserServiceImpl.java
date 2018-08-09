@@ -1,4 +1,4 @@
-package com.project.accounting.services;
+package com.project.accounting.servicesImpl;
 
 import java.util.List;
 
@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.project.accounting.model.AppUser;
 import com.project.accounting.repository.AppUserRepository;
+import com.project.accounting.services.AppUserService;
 
 @Service
-public class AppUserServiceImpl implements AppUserService {
+public class AppUserServiceImpl implements AppUserService{
 	
 	@Autowired
 	private AppUserRepository repository;
@@ -23,38 +24,40 @@ public class AppUserServiceImpl implements AppUserService {
 	}
 
 	@Override
-	public AppUser saveUser(AppUser user) {
+	public AppUser saveUser(AppUser appUser) {
 		// TODO Auto-generated method stub
-		return repository.save(user);
+		return null;
 	}
 
 	@Override
-	public AppUser updateUser(AppUser user) {
+	public AppUser updateUser(AppUser appUser) {
 		// TODO Auto-generated method stub
-		return repository.save(user);
+		return null;
 	}
 
 	@Override
-	public void deleteUser(AppUser user) {
-		repository.delete(user);
+	public void deleteUser() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public AppUser getUserById(int id) {
 		// TODO Auto-generated method stub
-		return repository.getOne(id);
+		return null;
 	}
 
 	@Override
 	public List<AppUser> getAllUser() {
 		// TODO Auto-generated method stub
-		return repository.findAll();
+		return null;
 	}
 
 	@Override
-	public AppUser getUserByUserName(String name) {
+	public AppUser getUserByUserName(String username) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

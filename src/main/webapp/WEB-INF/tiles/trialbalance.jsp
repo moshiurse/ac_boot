@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="views/js/trialbalance.js"></script>
+<script type="text/javascript" src="/views/js/jspdf.min.js"></script>
 <link href="views/css/common.css" rel="stylesheet"></link>
 <link href="views/css/trialbalance.css" rel="stylesheet"></link>
 </head>
@@ -13,15 +15,36 @@
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
 	
+	<div id="content">
 	<div class="card mx-auto text-center">
         <div class="card-header">
             <h1>Daffodil Internation University</h1>
             <h3>Trial Balance</h3>
             <h3>December 31, 2017</h3>
-            <img class="img-fluid" src="img/logo.jpeg" alt="logo">
+            
+          <div class="row">
+            <div class="col-md-3">
+            <div class="form-group">
+            <label class="">Start Date</label>
+                    <input required type="date" class="form-control" 
+                    placeholder="Start Date" name="startdate" id="startdate">
+                </div>
+                </div>
+                <div class="col-md-3">
+                <div class="form-group">
+                <label class="">End Date</label>
+                    <input type="date" class="form-control"
+                     placeholder="Finish Date" name="enddate" id="enddate" required>
+                </div>
+                </div>
+            <input type="submit" class="btn btn-lg btn-acc" value="Show Trial Balance" id="showtrial">
+            <input type="submit" class="btn btn-lg btn-acc" value="Download Pdf" id="pdf">
+            
+            </div>
+            
         </div>
         <div class="card-body text-center">
-        
+    <div id="dataTable"></div>
     <table class="table table-bordered text-center">
     <thead>
       <tr>
@@ -71,7 +94,7 @@
         
 </div>
     </div>
-	
+	</div>
 	
 	</div>
 	<div class="col-md-2"></div>

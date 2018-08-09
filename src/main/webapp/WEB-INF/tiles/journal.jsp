@@ -32,8 +32,8 @@
                 	</div>
                 	
                 	<div class="col-md-6">
-                	<input name="journaltype" type="radio" value="1" checked><label>Payment Journal</label>
-                	<input name="journaltype" type="radio" value="2"><label>Recieve Journal</label>
+                	<input name="journaltype" type="radio" value="1" checked><label>Payment</label>
+                	<input name="journaltype" type="radio" value="2"><label>Recieve</label>
                 	</div>
                 	</div>
                 </div>
@@ -42,7 +42,7 @@
             <div class="form-group">
             <label class="col-md-2 control-label">voucher No: </label>
             <div class="col-md-4">
-            <input type="number" name="voucherno" id="voucherno" class="form-control" disabled>
+            <input type="number" name="voucherno" id="voucherno" class="form-control" readonly>
             </div>
             <label class="col-md-2 control-label">Voucher Date: </label>
             <div class="col-md-4">
@@ -134,8 +134,9 @@
     </table>
     
     <input type="submit" class="btn btn-lg btn-acc" value="Submit to Journal">
-            </form>
-        </div>
+    
+    </form>
+    </div>
     </div>
 	</div>
 	

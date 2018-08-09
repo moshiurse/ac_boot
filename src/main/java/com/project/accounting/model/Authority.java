@@ -10,25 +10,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="acc_authorities")
+@Table(name="authorities")
 public class Authority implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name="authority_id")
 	private int id;
 	
 	@Id
-	@Column(name="username")
-	private String userName;
+	@Column(name="user_id")
+	private int userId;
 	
 	@Id
-	@Column(name="authority")
-	private String authority;
+	@Column(name="role_id")
+	private int roleId;
 	
 	@Id
-	@Column(name="company")
-	private int company;
+	@Column(name="company_id")
+	private int company_id;
 
 	public int getId() {
 		return id;
@@ -38,37 +38,34 @@ public class Authority implements Serializable{
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public String getAuthority() {
-		return authority;
+	public int getRoleId() {
+		return roleId;
 	}
 
-	public void setAuthority(String authority) {
-		this.authority = authority;
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 
-	public int getCompany() {
-		return company;
+	public int getCompany_id() {
+		return company_id;
 	}
 
-	public void setCompany(int company) {
-		this.company = company;
+	public void setCompany_id(int company_id) {
+		this.company_id = company_id;
 	}
 
 	@Override
 	public String toString() {
-		return "Authority [id=" + id + ", userName=" + userName + ", authority=" + authority + ", company=" + company
-				+ "]";
+		return "Authority [id=" + id + ", userId=" + userId + ", roleId=" + roleId + ", company_id=" + company_id + "]";
 	}
-	
-	
-	
 
+	
 }
