@@ -46,7 +46,8 @@
             </div>
             <label class="col-md-2 control-label">Voucher Date: </label>
             <div class="col-md-4">
-            <input required type="date" name="vdate" id="vdate" class="form-control">
+            <input required type="text" name="vdate" placeholder="Voucher Date"
+             id="vdate" class="form-control">
             <span class="error" id="ervdate"></span>
             </div>
             </div>
@@ -54,16 +55,12 @@
             <div class="form-group">
 			<label class="col-md-2 control-label">Account Head: </label>
             <div class="col-md-4">
-            <select id="ca" name="ca" class="form-control">
-            <option value="0">Select Head</option>
-            </select>
+            <div id="journalca"></div>
             <span class="error" id="erca"></span>
             </div>
             <label class="col-md-2 control-label">Project:  </label>
             <div class="col-md-4">
-            <select id="project" name="project" class="form-control">
-            <option value="0">Select project</option>
-            </select>
+            <div id="journalproject"></div>
             <span class="error" id="erproject"></span>
             </div>            
             </div>

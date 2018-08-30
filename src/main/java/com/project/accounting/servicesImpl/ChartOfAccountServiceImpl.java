@@ -1,6 +1,7 @@
 package com.project.accounting.servicesImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,32 +18,38 @@ public class ChartOfAccountServiceImpl implements ChartOfAccountService{
 
 	@Override
 	public ChartOfAccount saveCa(ChartOfAccount account) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return chartOfAccountRepository.save(account);
 	}
 
 	@Override
 	public ChartOfAccount updateCa(ChartOfAccount account) {
-		// TODO Auto-generated method stub
-		return null;
+		ChartOfAccount ca = chartOfAccountRepository.findById(account.getCaId()).get();
+		return chartOfAccountRepository.save(ca);
 	}
 
 	@Override
 	public void deleteCa(ChartOfAccount account) {
-		// TODO Auto-generated method stub
-		
+		ChartOfAccount ca =  chartOfAccountRepository.findById(account.getCaId()).get();
+		chartOfAccountRepository.delete(ca);
 	}
 
 	@Override
 	public ChartOfAccount getCaById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return chartOfAccountRepository.findById(id).get();
 	}
 
 	@Override
 	public List<ChartOfAccount> getAllCa() {
-		// TODO Auto-generated method stub
+
 		return chartOfAccountRepository.findAll();
+	}
+
+	@Override
+	public List<ChartOfAccount> getAllCaByCompany(int company) {
+
+		return chartOfAccountRepository.findByCompany(company);
 	}
 
 

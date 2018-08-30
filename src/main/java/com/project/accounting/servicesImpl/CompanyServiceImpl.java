@@ -16,26 +16,26 @@ public class CompanyServiceImpl implements CompanyService{
 	CompanyRepository companyRepository;
 	
 	@Override
-	public Company saveCompany(Company account) {
+	public Company saveCompany(Company company) {
 		// TODO Auto-generated method stub
-		return null;
+		return companyRepository.save(company);
 	}
 
 	@Override
-	public Company updateCompany(Company account) {
-		// TODO Auto-generated method stub
-		return null;
+	public Company updateCompany(Company company) {
+		company = companyRepository.findById(company.getId()).get();
+		return companyRepository.save(company);
 	}
 
 	@Override
-	public void deleteCompany(Company account) {
-		// TODO Auto-generated method stub
-		
+	public void deleteCompany(Company company) {
+		Company companyId = companyRepository.findById(company.getId()).get();
+		companyRepository.delete(companyId);
 	}
 
 	@Override
 	public List<Company> getAllCompany() {
-		// TODO Auto-generated method stub
+
 		return companyRepository.findAll();
 	}
 

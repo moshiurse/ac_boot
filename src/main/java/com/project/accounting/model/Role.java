@@ -19,6 +19,10 @@ public class Role {
 	@Column(name="level")
 	int roleLevel;
 
+	public Role() {
+		
+	}
+
 	public int getRoleId() {
 		return roleId;
 	}

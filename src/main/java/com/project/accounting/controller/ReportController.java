@@ -27,7 +27,7 @@ public class ReportController {
 		Map<String, Object> map = new HashMap<>();
 		
 		map.put("data", reportServiceImpl.getTrialBalance(1, 1, "2018-08-01", "2018-08-31"));
-		
+		System.out.println(map);
 		return map;
 	}
 	

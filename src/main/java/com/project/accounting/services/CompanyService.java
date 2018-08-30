@@ -6,11 +6,11 @@ import com.project.accounting.model.Company;
 
 public interface CompanyService {
 	
-	Company saveCompany(Company account);
+	Company saveCompany(Company company);
 	
-	Company updateCompany(Company account);
+	Company updateCompany(Company company);
 	
-	void deleteCompany(Company account);
+	void deleteCompany(Company company);
 	
 	List<Company> getAllCompany();
 

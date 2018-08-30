@@ -3,6 +3,8 @@
 //		------- Function Calling   ----------------
 		initial();
 		checkedBox();
+		showCa();
+		showProject();
 		
 //		---------- End Function Calling--------------
 		
@@ -36,6 +38,12 @@
 		
 
 //		-------- End CheckBox Event-------------
+		
+//	-----------	DatePicker	-------------
+		$("#vdate").datepicker({
+			format: 'yyyy-mm-dd'
+		});
+//		----------- End DatePicker ----------
 		
 //		-------- Validation -  ---------------
 		function validation(){
@@ -84,19 +92,40 @@
 			
 			$.post("showProject", function(project){
 				
-				var option = '<select class="form-control" id="project" name="project"><option value="0">Select</option>';
+				var option = '<select class="form-control" id="project" name="project"><option value="0">Select Project</option>';
 				
 				for(var key in project){
-					option += '<option value="'+project[key].projectCode+'"> '+project[key].projectName+'</option>'
+					option += '<option value="'+project[key].projectId+'"> '+project[key].projectName+'</option>'
 				}
 				
 				option += '</select>';
 				
-				$("#projectdiv").html(option);
+				$("#journalproject").html(option);
 			
 			});
 		}
 //--------------------End - Project Code to combo box----------------------
+
+		//--------------------Start - Project Code to combo box----------------------
+		function showCa(){
+			
+			$.post("showChartOfAccount", function(ca){
+				
+				var option = '<select id="ca" name="ca" class="form-control"><option value="0">Select Head</option>';
+				
+				for(var key in ca){
+					option += '<option value="'+ca[key].caId+'"> '+ca[key].caName+'</option>';
+				}
+				
+				option += '</select>';
+				
+				$("#journalca").html(option);
+			});
+		}
+		
+//--------------------End - Project Code to combo box----------------------
+
+		
 		
 //--------------------Start - Show Bank Account to combo box----------------------
 		function showBankAccount() {

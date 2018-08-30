@@ -45,6 +45,17 @@
         </div>
         <div class="card-body text-center">
     <div id="dataTable"></div>
+
+        
+</div>
+    </div>
+	</div>
+	
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+/*
     <table class="table table-bordered text-center">
     <thead>
       <tr>
@@ -91,16 +102,7 @@
       </tr>
     </tbody>
   </table>
-        
-</div>
-    </div>
-	</div>
-	
-	</div>
-	<div class="col-md-2"></div>
-</div>
-
-
+*/
 
 </body>
 </html>

@@ -5,24 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="acc_fin_year")
+@Table(name="finyear")
 public class FinYear {
 
 	@Id
-	@Column(name="fy_id")
+	@Column(name="finyear_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int finYearId;
 	
-	@Column(name="fy_no")
+	@Column(name="finyear_no")
 	private int finYearNo;
 	
-	@Column(name="comid")
-	private int companyId;
 	
-	@Column(name="start_dt")
+	@Column(name="company")
+	private int company;
+	
+	@Column(name="start_date")
 	private String finYearStartDate;
 	
 	@Column(name="end_date")
@@ -30,6 +32,11 @@ public class FinYear {
 	
 	@Column(name="created_by")
 	private String createdBy;
+	
+	
+	@Column(name="verified_by")
+	private String verifiedBy;
+	
 
 	public int getFinYearId() {
 		return finYearId;
@@ -48,13 +55,12 @@ public class FinYear {
 	}
 
 
-
-	public int getCompanyId() {
-		return companyId;
+	public int getCompany() {
+		return company;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setCompany(int company) {
+		this.company = company;
 	}
 
 	public String getFinYearStartDate() {
@@ -80,13 +86,20 @@ public class FinYear {
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
+	public String getVerifiedBy() {
+		return verifiedBy;
+	}
 
-	
+	public void setVerifiedBy(String verifiedBy) {
+		this.verifiedBy = verifiedBy;
+	}
+
 	@Override
 	public String toString() {
-		return "FinYear [finYearId=" + finYearId + ", finYearNo=" + finYearNo + ", companyId=" + companyId
+		return "FinYear [finYearId=" + finYearId + ", finYearNo=" + finYearNo + ", company=" + company
 				+ ", finYearStartDate=" + finYearStartDate + ", finYearEndDate=" + finYearEndDate + ", createdBy="
-				+ createdBy + "]";
-	}	
+				+ createdBy + ", verifiedBy=" + verifiedBy + "]";
+	}
+
 	
 }

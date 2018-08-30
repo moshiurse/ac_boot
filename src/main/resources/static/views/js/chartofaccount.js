@@ -39,25 +39,28 @@ $(document).ready(function(){
 //		-------------  End Variable Declaration ---------------
 	
 		if(headId == ""){
-			alert("head id required");
+			$("#erheadid").val("Please Enter a Id");
 			return false;
-		}else if(headingId <= 0){
-			alert("id must be positive");
+		}else if(headId <= 0){
+			$("#erheadid").val("No Negetive value accepted");
 			return false;
 		}else if(headName == ""){
-			alert("heading name required");
+			$("#erheadname").val("Please Enter Head Name");
 			return false;
 		}else if(type == 0){
 			alert("Plz select a type");
 			return false;
+		}else{
+			return true;	
 		}
-		return true;
+		
 	}
 	
 	
 //	------------ End Validation -------------
 	
 //	-------------  Save Button Click ---------------- 
+	
 	$("#createhead").click(function(){
 		event.preventDefault();
 			if(validation()){
@@ -67,24 +70,25 @@ $(document).ready(function(){
 				data["caName"] = $.trim($("#headname").val());
 				data["caParent"] = $.trim($("#parent").val());
 				data["caType"] = $.trim($("#type").val());
-				
+				alert(JSON.stringify(data));
 				
 				$.ajax({
 					type: "POST",
-					url: "/saveCa",
+					url: "saveCa",
 					data: JSON.stringify(data),
 					contentType: "application/json; charset=utf-8",
 					success: function(){
 						$("#successmsg").removeClass("hidden");
 						$("#errormsg").addClass("hidden");
+						alert(JSON.stringify(data));
 					},
-					error: function(){
+					error: function(error){
 						$("#errormsg").removeClass("hidden");
 						$("#successmsg").addClass("hidden");
-						alert(JSON.stringify(data));
+						alert(error);
+						
 					}
 				});
-				alert("Successfull");
 		
 				
 			}

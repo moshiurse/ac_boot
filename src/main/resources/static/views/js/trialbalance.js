@@ -17,12 +17,11 @@ $(document).ready(function(){
 	
 //	------------ End Make Pdf -------------------
 	
-	
 	$("#showtrial").click(function(event){
 		
 		var startdate = $("#")
 		
-		$.post("showTrialBalance", function(tb){
+		$.post("/report/trialbalance", function(tb){
 		var table = '<table class="table table-bordered text-center" id="showtable"><thead><tr><th>Account Name</th><th>Debit</th><th>Credit</th></tr></thead>';
 		for(var key in tb){
 			table += '<tbody><tr><td>'+tb.caName+'</td><td>'+tb.debit+'</td><td>'+tb.credit+'</td>';
@@ -38,6 +37,9 @@ $(document).ready(function(){
 		});
 		
 		table+= '<tr><td><b>Totals</b></td><td>+debit+</td><td>+credit+</td></tr></tbody></table>';
+		$("#dataTable").html(table);
 		});
+		
+		
 	});
 });

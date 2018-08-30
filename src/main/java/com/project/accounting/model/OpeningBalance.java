@@ -8,16 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="acc_opening_balance")
+@Table(name="opening_balance")
 public class OpeningBalance {
 	
 	@Id
-	@Column(name="ob_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="opening_balance_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(name="fy_id")
-	private int finYearId;
+	@Column(name="finyear_id")
+	private int finYear;
 	
 	@Column(name="ca_id")
 	private String caId;
@@ -35,7 +35,7 @@ public class OpeningBalance {
 	private String currency;
 	
 	@Column(name="company_id")
-	private int companyId;
+	private int company;
 	
 	@Column(name="created_by")
 	private String createdBy;
@@ -48,12 +48,12 @@ public class OpeningBalance {
 		this.id = id;
 	}
 
-	public int getFinYearId() {
-		return finYearId;
+	public int getFinYear() {
+		return finYear;
 	}
 
-	public void setFinYearId(int finYearId) {
-		this.finYearId = finYearId;
+	public void setFinYear(int finYear) {
+		this.finYear = finYear;
 	}
 
 	public String getCaId() {
@@ -96,12 +96,14 @@ public class OpeningBalance {
 		this.currency = currency;
 	}
 
-	public int getCompanyId() {
-		return companyId;
+
+
+	public int getCompany() {
+		return company;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setCompany(int company) {
+		this.company = company;
 	}
 
 	public String getCreatedBy() {
@@ -114,12 +116,11 @@ public class OpeningBalance {
 
 	@Override
 	public String toString() {
-		return "OpeningBalance [id=" + id + ", finYearId=" + finYearId + ", caId=" + caId + ", project=" + project
-				+ ", debit=" + debit + ", credit=" + credit + ", currency=" + currency + ", companyId=" + companyId
+		return "OpeningBalance [id=" + id + ", finYear=" + finYear + ", caId=" + caId + ", project=" + project
+				+ ", debit=" + debit + ", credit=" + credit + ", currency=" + currency + ", company=" + company
 				+ ", createdBy=" + createdBy + "]";
 	}
-	
-	
+
 	
 
 }

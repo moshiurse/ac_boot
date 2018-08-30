@@ -1,10 +1,17 @@
 package com.project.accounting.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,13 +30,40 @@ public class AppUser {
 	private String email;
 	
 	@Column(name="username")
-	private String UserName;
+	private String userName;
 	
 	@Column(name="password")
 	private String password;
 	
 	@Column(name="enabled")
 	private boolean enable;
+	
+	@Column(name="created_by")
+	private String createdBy;
+	
+	@OneToMany(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
+	@JoinTable(name="authority", joinColumns= @JoinColumn(name="user_id"))
+	private Set<Authority> authorities;
+	
+	
+
+	public AppUser() {
+		
+	}
+	
+	
+
+	public AppUser(AppUser appUser) {
+		this.email = appUser.getEmail();
+		this.fullName = appUser.getFullName();
+		this.enable = appUser.isEnable();
+		this.password = appUser.getPassword();
+		this.authorities = appUser.getAuthorities();
+		this.userName = appUser.getUserName();
+		this.createdBy =appUser.getCreatedBy();
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -56,11 +90,11 @@ public class AppUser {
 	}
 
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 
 	public void setUserName(String userName) {
-		UserName = userName;
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -77,12 +111,42 @@ public class AppUser {
 
 	public void setEnable(boolean enable) {
 		this.enable = enable;
+	}	
+
+
+
+
+	public String getCreatedBy() {
+		return createdBy;
 	}
+
+
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+
+
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "AppUser [id=" + id + ", fullName=" + fullName + ", email=" + email + ", UserName=" + UserName
-				+ ", password=" + password + ", enable=" + enable + "]";
+		return "AppUser [id=" + id + ", fullName=" + fullName + ", email=" + email + ", UserName=" + userName
+				+ ", password=" + password + ", enable=" + enable + ", createdBy=" + createdBy + ", authorities="
+				+ authorities + "]";
 	}
+
+
 
 }

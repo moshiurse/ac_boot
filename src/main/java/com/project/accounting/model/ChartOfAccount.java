@@ -16,7 +16,7 @@ public class ChartOfAccount {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name = "chartofaccount_id")
-	private String caId;
+	private int caId;
 	
 	@Column(name= "code")
 	private String caCode;
@@ -24,11 +24,13 @@ public class ChartOfAccount {
 	@Column(name = "name")
 	private String caName;
 
-	@Column(name = "company_id")
-	private int cacomId;
 
-	@Column(name = "parent")
-	private String caParent;
+	@Column(name = "parent",nullable=true)
+	private Integer caParent;
+	
+	@Column(name = "company_id")
+	private int company;
+	
 
 	@Column(name = "created_by")
 	private String createdBy;
@@ -39,50 +41,59 @@ public class ChartOfAccount {
 	@Column(name = "verified_by")
 	private String verifiedBy;
 
-	@Column(name = "verified_at")
+	@Column(name = "verified_at") 
 	private Date verifiedAt;
 
-	public String getCaId() {
+	
+	public int getCaId() {
 		return caId;
 	}
 
-	public void setCaId(String caId) {
+
+	public void setCaId(int caId) {
 		this.caId = caId;
 	}
-	
-	
+
 
 	public String getCaCode() {
 		return caCode;
 	}
 
+
 	public void setCaCode(String caCode) {
 		this.caCode = caCode;
 	}
+
 
 	public String getCaName() {
 		return caName;
 	}
 
+
 	public void setCaName(String caName) {
 		this.caName = caName;
 	}
 
-	public int getCacomId() {
-		return cacomId;
-	}
 
-	public void setCacomId(int cacomId) {
-		this.cacomId = cacomId;
-	}
-
-	public String getCaParent() {
+	public Integer getCaParent() {
 		return caParent;
 	}
 
-	public void setCaParent(String caParent) {
+
+	public void setCaParent(Integer caParent) {
 		this.caParent = caParent;
 	}
+
+
+	public int getCompany() {
+		return company;
+	}
+
+
+	public void setCompany(int company) {
+		this.company = company;
+	}
+
 
 	public String getCreatedBy() {
 		return createdBy;
@@ -96,34 +107,40 @@ public class ChartOfAccount {
 		return createdAt;
 	}
 
+
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
 
 	public String getVerifiedBy() {
 		return verifiedBy;
 	}
 
+
 	public void setVerifiedBy(String verifiedBy) {
 		this.verifiedBy = verifiedBy;
 	}
+
 
 	public Date getVerifiedAt() {
 		return verifiedAt;
 	}
 
+
 	public void setVerifiedAt(Date verifiedAt) {
 		this.verifiedAt = verifiedAt;
 	}
 
+
 	@Override
 	public String toString() {
-		return "ChartOfAccount [caId=" + caId + ", caCode=" + caCode + ", caName=" + caName + ", cacomId=" + cacomId
-				+ ", caParent=" + caParent + ", createdBy=" + createdBy + ", createdAt=" + createdAt + ", verifiedBy="
+		return "ChartOfAccount [caId=" + caId + ", caCode=" + caCode + ", caName=" + caName + ", caParent=" + caParent
+				+ ", company=" + company + ", createdBy=" + createdBy + ", createdAt=" + createdAt + ", verifiedBy="
 				+ verifiedBy + ", verifiedAt=" + verifiedAt + "]";
 	}
 
-	
+
 	
 
 }

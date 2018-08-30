@@ -13,5 +13,7 @@ public interface OpeningBalanceService {
 	void deleteOpeningBalance(OpeningBalance balance);
 
 	List<OpeningBalance> getAllOpeningBalance();
+	
+	List<OpeningBalance> getOpeningBalanceByFinYearAndCompany(int finYear,int company);
 
 }

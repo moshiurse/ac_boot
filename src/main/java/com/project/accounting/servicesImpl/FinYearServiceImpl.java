@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.accounting.model.Company;
 import com.project.accounting.model.FinYear;
 import com.project.accounting.repository.FinYearRepository;
 import com.project.accounting.services.FinYearService;
@@ -17,20 +18,21 @@ public class FinYearServiceImpl implements FinYearService{
 
 	@Override
 	public FinYear saveFinYear(FinYear finYear) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return finYearRepository.save(finYear);
 	}
 
 	@Override
 	public FinYear updateFinYear(FinYear finYear) {
-		// TODO Auto-generated method stub
-		return null;
+		FinYear year= finYearRepository.findById(finYear.getFinYearId()).get();
+		return finYearRepository.save(year);
 	}
 
 	@Override
 	public void deleteFinYear(FinYear finYear) {
-		// TODO Auto-generated method stub
-		
+
+		FinYear year= finYearRepository.findById(finYear.getFinYearId()).get();
+		finYearRepository.delete(year);
 	}
 
 	@Override
@@ -40,9 +42,9 @@ public class FinYearServiceImpl implements FinYearService{
 	}
 
 	@Override
-	public List<FinYear> getFinYearByCompanyId(int companyId) {
+	public List<FinYear> getFinYearByCompany(int company) {
 		
-		return finYearRepository.findByCompanyId(companyId);
+		return finYearRepository.findByCompany(company);
 	}
 
 }

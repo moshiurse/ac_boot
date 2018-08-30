@@ -2,6 +2,7 @@ package com.project.accounting.services;
 
 import java.util.List;
 
+import com.project.accounting.model.Company;
 import com.project.accounting.model.FinYear;
 
 public interface FinYearService {
@@ -14,6 +15,6 @@ public interface FinYearService {
 
 	List<FinYear> getAllFinYear();
 	
-	List<FinYear> getFinYearByCompanyId(int companyId);
+	List<FinYear> getFinYearByCompany(int company);
 
 }

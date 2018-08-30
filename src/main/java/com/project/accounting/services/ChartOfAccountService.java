@@ -16,6 +16,8 @@ public interface ChartOfAccountService {
 	
 	List<ChartOfAccount> getAllCa();
 	
+	List<ChartOfAccount> getAllCaByCompany(int company);
+	
 	
 	
 	

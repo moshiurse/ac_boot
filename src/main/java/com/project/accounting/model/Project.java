@@ -6,11 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="acc_project")
+@Table(name="project")
 public class Project {
 	
 	@Id
-	@Column(name="project_code")
+	@Column(name="project_id")
+	private int projectId;
+	
+	@Column(name="code")
 	private String projectCode;
 	
 	@Column(name="name")
@@ -19,8 +22,6 @@ public class Project {
 	@Column(name="address")
 	private String projectAddress;
 	
-	@Column(name="region")
-	private String projectRegion;
 	
 	@Column(name="category")
 	private String projectCategory;
@@ -32,7 +33,7 @@ public class Project {
 	private String finishDate;
 	
 	@Column(name="company")
-	private int companyId;
+	private int company;
 	
 	@Column(name="created_by")
 	private String createdBy;
@@ -61,14 +62,6 @@ public class Project {
 		this.projectAddress = projectAddress;
 	}
 
-	public String getProjectRegion() {
-		return projectRegion;
-	}
-
-	public void setProjectRegion(String projectRegion) {
-		this.projectRegion = projectRegion;
-	}
-
 	public String getProjectCategory() {
 		return projectCategory;
 	}
@@ -93,13 +86,6 @@ public class Project {
 		this.finishDate = finishDate;
 	}
 
-	public int getCompanyId() {
-		return companyId;
-	}
-
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
-	}
 
 	public String getCreatedBy() {
 		return createdBy;
@@ -111,12 +97,13 @@ public class Project {
 
 	@Override
 	public String toString() {
-		return "ProjectInfo [projectCode=" + projectCode + ", projectName=" + projectName + ", projectAddress="
-				+ projectAddress + ", projectRegion=" + projectRegion + ", projectCategory=" + projectCategory
-				+ ", projectStart=" + projectStart + ", finishDate=" + finishDate + ", companyId=" + companyId
-				+ ", createdBy=" + createdBy + "]";
+		return "Project [projectId=" + projectId + ", projectCode=" + projectCode + ", projectName=" + projectName
+				+ ", projectAddress=" + projectAddress + ", projectCategory=" + projectCategory + ", projectStart="
+				+ projectStart + ", finishDate=" + finishDate + ", company=" + company + ", createdBy=" + createdBy
+				+ "]";
 	}
-	
+
+
 	
 
 }
