@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="application/javascript" src="views/js/finyear.js"></script>
 <link href="views/css/common.css" rel="stylesheet"></link>
-<link href="views/css/crfinyear.css" rel="stylesheet"></link>
+<link href="views/css/finyear.css" rel="stylesheet"></link>
 </head>
 <body>
 
@@ -26,16 +27,6 @@
                 </div>
                 
                 <div class="form-group">
-                	<label for="company">Company </label>
-					  <select class="form-control" id="company">
-					    <option>Acc</option>
-					    <option>Bcc</option>
-					    <option>Cdd</option>
-					    <option>Dee</option>
-					  </select>
-                </div>
-                
-                <div class="form-group">
                 	<label>Start Date </label>
                     <input required type="date" class="form-control form-control-lg" placeholder="Start Date" name="startdate" id="startdate">
                 </div>
@@ -45,7 +36,7 @@
                     <input required type="date" class="form-control form-control-lg" placeholder="End Date" name="enddate" id="enddate"> 
                 </div>
                 
-                <input type="submit" class="btn btn-lg btn-acc" value="Create Financial Year">
+                <input type="submit" class="btn btn-lg btn-acc" value="Create Financial Year" id="savefinyear">
             </form>
         </div>
     </div>

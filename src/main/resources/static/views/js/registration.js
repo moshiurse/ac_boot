@@ -1,7 +1,5 @@
 $(document).ready(function(){
 	
-	alert("Worked");
-	
 	var fullname = $.trim($('#regfullname').val());
 	var email = $.trim($('#regemail').val());
 	var username = $.trim($('#regusername').val());
@@ -9,31 +7,35 @@ $(document).ready(function(){
 	var conpass = $.trim($('#regconpass').val());
 	
 	var passwordlength = password.length;
-	var conpasslength = conpass.length;
-//	var emailpattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+
 	
 	function checkfullname(){
+
 		if(fullname == ""){
 			$('#regfullname').addClass("invalid");
 			$('#regfullname').removeClass("valid");
-			$('#erfullname').text(fullname);
+			$('#erfullname').text("Full Name Must not empty");
 			return false;
 		}else {
-			$('#regemail').addClass("valid");
-			$('#regemail').removeClass("invalid");
-			
+			$('#regfullname').addClass("valid");
+			$('#regfullname').removeClass("invalid");
+            $("#eremail").text("");
 			return true;
 		}	
 	}
 	
 	function checkemail(){
-		var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i 
+		var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
 		if(email == ""){
 			$('#regemail').addClass("invalid");
 			$('#regemail').removeClass("valid");
+            $('#eremail').text("Email Must not empty");
 			return false;
-		}else if(!emailpattern.test(email)){
-			$("#eremail").text("Invalid Email");
+		}else if(!pattern.test(email)){
+            $('#regemail').addClass("invalid");
+            $('#regemail').removeClass("valid");
+			$("#eremail").text("Invalid Email format");
+			return false;
 		}else {
 			$('#regemail').addClass("valid");
 			$('#regemail').removeClass("invalid");
@@ -49,10 +51,12 @@ $(document).ready(function(){
 		if(username == ""){
 			$('#regusername').addClass("invalid");
 			$('#regusername').removeClass("valid");
+            $("#erusername").text("Username Must Not empty");
 			return false;
 		}else {
 			$('#regusername').addClass("valid");
 			$('#regusername').removeClass("invalid");
+            $("#erusername").text("");
 			return true;
 		}		
 	}
@@ -62,26 +66,31 @@ $(document).ready(function(){
 		if(password == ""){
 			$('#regpassword').addClass("invalid");
 			$('#regpassword').removeClass("valid");
+            $("#erparent").text("Password Must Not Empty");
 			return false;
 		}else if(passwordlength <5){
+            $('#regpassword').addClass("invalid");
+            $('#regpassword').removeClass("valid");
 			$('#erpassword').text("password should be at least 5 digit");
 			return false;
 		}else {
 			$('#regpassword').addClass("valid");
 			$('#regpassword').removeClass("invalid");
+            $("#erpassword").text("");
 			return true;
 		}		
 	}
 	
 	function checkconpass(){
-		if(conpassword !== password){
+		if(conpass !== password){
 			$('#regconpass').addClass("valid");
 			$('#regconpass').removeClass("invalid");
-			$('#erconpass').html("confirm password should be matched with password");
+			$('#erconpass').text("confirm password should be matched with password");
 			return false;
 		}else {
 			$('#regconpass').addClass("valid");
 			$('#regconpass').removeClass("invalid");
+            $('#erconpass').text("");
 			return true;
 		}
 	}
@@ -104,6 +113,10 @@ $(document).ready(function(){
 		if(!checkpassword()){
 			return false;
 		}
+
+        if(!checkconpass()){
+            return false;
+        }
 		
 		return true;
 	}
@@ -112,13 +125,13 @@ $(document).ready(function(){
 		event.preventDefault();
 
 		
-//		if(validation()){
-//			alert("Registered Successfully");
-//		}else {
-//			alert("Registered Failed!");
-//		}
+		if(validation()){
+			alert("Registered Successfully");
+		}else {
+			alert("Registered Failed!");
+		}
 		
 	});
-	
-	
+
+
 });

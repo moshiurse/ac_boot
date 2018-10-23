@@ -42,7 +42,7 @@ $(document).ready(function(){
 			$("#erheadid").val("Please Enter a Id");
 			return false;
 		}else if(headId <= 0){
-			$("#erheadid").val("No Negetive value accepted");
+			$("#erheadid").val("No Negetive value accepted as Head ID");
 			return false;
 		}else if(headName == ""){
 			$("#erheadname").val("Please Enter Head Name");
@@ -89,8 +89,6 @@ $(document).ready(function(){
 						
 					}
 				});
-		
-				
 			}
 				
 	});

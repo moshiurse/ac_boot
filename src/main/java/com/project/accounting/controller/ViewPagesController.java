@@ -18,6 +18,12 @@ public class ViewPagesController {
 		
 		return "login";
 	}
+
+	@RequestMapping("/logout")
+	public String showLogout() {
+
+	return "logout";
+	}
 	
 	@RequestMapping("/registration")
 	public String showRegistration() {

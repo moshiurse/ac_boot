@@ -30,7 +30,13 @@ public class Authority implements Serializable{
 	@Column(name="company_id")
 	private int company_id;
 
-	public int getId() {
+public Authority(int userId, int roleId, int company_id) {
+	this.userId = userId;
+	this.roleId = roleId;
+	this.company_id = company_id;
+}
+
+public int getId() {
 		return id;
 	}
 

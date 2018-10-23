@@ -18,26 +18,25 @@ public class FinYearServiceImpl implements FinYearService{
 
 	@Override
 	public FinYear saveFinYear(FinYear finYear) {
-
 		return finYearRepository.save(finYear);
 	}
 
 	@Override
 	public FinYear updateFinYear(FinYear finYear) {
-		FinYear year= finYearRepository.findById(finYear.getFinYearId()).get();
-		return finYearRepository.save(year);
+		finYear= finYearRepository.findById(finYear.getFinYearId()).get();
+		return finYearRepository.save(finYear);
 	}
 
 	@Override
 	public void deleteFinYear(FinYear finYear) {
 
-		FinYear year= finYearRepository.findById(finYear.getFinYearId()).get();
-		finYearRepository.delete(year);
+		finYear= finYearRepository.findById(finYear.getFinYearId()).get();
+		finYearRepository.delete(finYear);
 	}
 
 	@Override
 	public List<FinYear> getAllFinYear() {
-		// TODO Auto-generated method stub
+
 		return finYearRepository.findAll();
 	}
 

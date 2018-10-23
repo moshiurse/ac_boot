@@ -44,28 +44,24 @@ public class AppUser {
 	@OneToMany(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
 	@JoinTable(name="authority", joinColumns= @JoinColumn(name="user_id"))
 	private Set<Authority> authorities;
-	
-	
 
 	public AppUser() {
 		
 	}
-	
-	
 
-	public AppUser(AppUser appUser) {
-		this.email = appUser.getEmail();
-		this.fullName = appUser.getFullName();
-		this.enable = appUser.isEnable();
-		this.password = appUser.getPassword();
-		this.authorities = appUser.getAuthorities();
-		this.userName = appUser.getUserName();
-		this.createdBy =appUser.getCreatedBy();
-	}
+public AppUser(String fullName, String email, String userName,
+			   String password, boolean enable, String createdBy,
+			   Set<Authority> authorities) {
+	this.fullName = fullName;
+	this.email = email;
+	this.userName = userName;
+	this.password = password;
+	this.enable = enable;
+	this.createdBy = createdBy;
+	this.authorities = authorities;
+}
 
-
-
-	public int getId() {
+public int getId() {
 		return id;
 	}
 
