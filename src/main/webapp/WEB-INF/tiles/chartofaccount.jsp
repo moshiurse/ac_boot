@@ -44,8 +44,8 @@
                 	<label>Type</label>
                 	<select id="type" class="form-control">
                 	<option value="0">Select</option>
-                	<option value="debit">debit</option>
-                	<option value="credit">credit</option>
+                	<option value="1">debit</option>
+                	<option value="2">credit</option>
                 	</select>
                     <span class="error" id="ertype"></span>
                 </div>

@@ -3,6 +3,9 @@ package com.project.accounting.servicesImpl;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,27 +27,27 @@ public class ChartOfAccountServiceImpl implements ChartOfAccountService{
 
 	@Override
 	public ChartOfAccount updateCa(ChartOfAccount account) {
-		ChartOfAccount ca = chartOfAccountRepository.findById(account.getCaId()).get();
+		ChartOfAccount ca = chartOfAccountRepository.findById(account.getId()).get();
 		return chartOfAccountRepository.save(ca);
 	}
 
-	@Override
-	public void deleteCa(ChartOfAccount account) {
-		ChartOfAccount ca =  chartOfAccountRepository.findById(account.getCaId()).get();
-		chartOfAccountRepository.delete(ca);
-	}
 
 	@Override
-	public ChartOfAccount getCaById(int id) {
+	public ChartOfAccount getCaById(Long id) {
 		
 		return chartOfAccountRepository.findById(id).get();
 	}
 
 	@Override
-	public List<ChartOfAccount> getAllCa() {
-
-		return chartOfAccountRepository.findAll();
+	public List<ChartOfAccount> getAllCaByIdOrName(String search, int company) {
+		return chartOfAccountRepository.findCaByIdOrName(search, company);
 	}
+
+	@Override
+	public List<ChartOfAccount> getAllActiveCa(int company) {
+		return chartOfAccountRepository.showAllActiveCa(company);
+	}
+
 
 	@Override
 	public List<ChartOfAccount> getAllCaByCompany(int company) {
@@ -52,6 +55,19 @@ public class ChartOfAccountServiceImpl implements ChartOfAccountService{
 		return chartOfAccountRepository.findByCompany(company);
 	}
 
+
+	@Override
+	public void disableCa(Long id) {
+
+		chartOfAccountRepository.disableCa(id);
+	}
+
+
+	@Override
+	public List<ChartOfAccount> getAllCaOfDomain() {
+
+		return chartOfAccountRepository.findAll();
+	}
 
 
 }

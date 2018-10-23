@@ -32,6 +32,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests().anyRequest().
+//                authenticated().and().formLogin().
+//                loginPage("/login").permitAll();
         http.csrf().requireCsrfProtectionMatcher(new AntPathRequestMatcher("**/login"))
                 .and().authorizeRequests().antMatchers("/home").hasRole("USER")
                 .and().authorizeRequests().antMatchers("/home1").hasRole("USER")

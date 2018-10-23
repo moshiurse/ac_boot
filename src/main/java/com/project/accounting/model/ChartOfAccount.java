@@ -2,20 +2,18 @@ package com.project.accounting.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "chartofaccount")
 public class ChartOfAccount {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name = "chartofaccount_id")
+	private Long id;
+
+	@Column(name = "ca_id")
 	private int caId;
 	
 	@Column(name= "code")
@@ -30,7 +28,12 @@ public class ChartOfAccount {
 	
 	@Column(name = "company_id")
 	private int company;
-	
+
+	@Column(name = "enable")
+	private int enable;
+
+	@Column(name = "type")
+	private int type;
 
 	@Column(name = "created_by")
 	private String createdBy;
@@ -44,8 +47,15 @@ public class ChartOfAccount {
 	@Column(name = "verified_at") 
 	private Date verifiedAt;
 
-	
-	public int getCaId() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+public int getCaId() {
 		return caId;
 	}
 
@@ -94,10 +104,25 @@ public class ChartOfAccount {
 		this.company = company;
 	}
 
-
-	public String getCreatedBy() {
-		return createdBy;
+	public int getEnable() {
+		return enable;
 	}
+
+	public void setEnable(int enable) {
+		this.enable = enable;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+public String getCreatedBy() {
+			return createdBy;
+		}
 
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;

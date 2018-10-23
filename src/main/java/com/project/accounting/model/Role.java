@@ -23,7 +23,13 @@ public class Role {
 		
 	}
 
-	public int getRoleId() {
+public Role(int roleId, String roleName, int roleLevel) {
+	this.roleId = roleId;
+	this.roleName = roleName;
+	this.roleLevel = roleLevel;
+}
+
+public int getRoleId() {
 		return roleId;
 	}
 
