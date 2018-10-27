@@ -7,6 +7,16 @@ label {
 label, input, textarea, select {
 	margin-bottom: 5px;
 }
+
+.input-group {
+    display: inline-flex;
+}
+
+.glyphicon {
+    color: white;
+    font-size: large;
+}
+
  img {
  margin-bottom: 10px;
  }
@@ -14,9 +24,10 @@ label, input, textarea, select {
 .card{
 	margin: 10px;
 	padding: 10px;
-    background: linear-gradient(#668BB3,#39567D);
+    background: linear-gradient(to right, #1d68b3,#39567D);
     width: 500px;
     height: auto;
+
 }
 
 .card-lg {
@@ -24,7 +35,7 @@ label, input, textarea, select {
 }
 
 .table {
-	background: white;
+	background: transparent;
 	padding: 5px;
 }
 

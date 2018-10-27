@@ -55,7 +55,7 @@ public class ChartOfAccount {
 		this.id = id;
 	}
 
-public int getCaId() {
+	public int getCaId() {
 		return caId;
 	}
 
@@ -157,15 +157,23 @@ public String getCreatedBy() {
 		this.verifiedAt = verifiedAt;
 	}
 
+@Override
+public String toString() {
+	return "ChartOfAccount{" +
+			"id=" + id +
+			", caId=" + caId +
+			", caCode='" + caCode + '\'' +
+			", caName='" + caName + '\'' +
+			", caParent=" + caParent +
+			", company=" + company +
+			", enable=" + enable +
+			", type=" + type +
+			", createdBy='" + createdBy + '\'' +
+			", createdAt=" + createdAt +
+			", verifiedBy='" + verifiedBy + '\'' +
+			", verifiedAt=" + verifiedAt +
+			'}';
+}
 
-	@Override
-	public String toString() {
-		return "ChartOfAccount [caId=" + caId + ", caCode=" + caCode + ", caName=" + caName + ", caParent=" + caParent
-				+ ", company=" + company + ", createdBy=" + createdBy + ", createdAt=" + createdAt + ", verifiedBy="
-				+ verifiedBy + ", verifiedAt=" + verifiedAt + "]";
-	}
-
-
-	
 
 }
