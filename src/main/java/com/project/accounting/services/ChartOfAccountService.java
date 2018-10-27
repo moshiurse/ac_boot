@@ -27,7 +27,10 @@ public interface ChartOfAccountService {
 	List<ChartOfAccount> getAllCaOfDomain();
 
 //	Delete/Disable ChartOfAccount
-	void disableCa(Long id);
+	void disableCa(Long id, int company);
+
+//	Find By Id
+	ChartOfAccount findById(ChartOfAccount id);
 	
 
 

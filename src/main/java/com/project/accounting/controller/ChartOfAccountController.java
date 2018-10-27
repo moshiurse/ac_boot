@@ -11,12 +11,16 @@ import com.project.accounting.model.ChartOfAccount;
 import com.project.accounting.servicesImpl.ChartOfAccountServiceImpl;
 
 @Controller
+@RequestMapping("/ca")
 public class ChartOfAccountController {
 	
 	@Autowired
 	ChartOfAccountService chartOfAccountservice;
-	
-	@RequestMapping(value="/showChartOfAccount", method=RequestMethod.POST)
+
+	/*
+	Method for All Chart Of Account
+	 */
+	@RequestMapping(value="/showAll", method=RequestMethod.POST)
 	public @ResponseBody List<ChartOfAccount> showChartOfAccount() {
 		
 		
@@ -31,7 +35,10 @@ public class ChartOfAccountController {
 		}
 	}
 
-	@RequestMapping(value="/showActiveChartOfAccount", method=RequestMethod.POST)
+	/*
+	Controller Method for show Active ChartOfAccount
+	 */
+	@RequestMapping(value="/showActive", method=RequestMethod.POST)
 	public @ResponseBody List<ChartOfAccount> showActiveChartOfAccount() {
 
 
@@ -46,18 +53,18 @@ public class ChartOfAccountController {
 			return null;
 		}
 	}
-	
-	@RequestMapping(value= "/saveCa", method= RequestMethod.POST)
-	@ResponseBody public String saveChartOfAccount(ChartOfAccount ca) {
+
+	/*
+	Controller method for Insert Chart Of Account in database
+	 */
+	@RequestMapping(value= "/save", method= RequestMethod.POST)
+	@ResponseBody public String saveChartOfAccount(@RequestBody ChartOfAccount ca) {
 		try {
-			ca.setCaId(1200);
-			ca.setCaName("Asset Expensee");
-			ca.setCaParent(1000);
 			ca.setCompany(1);
-			ca.setEnable(1);
-			ca.setType(2);
+//			ca.setEnable(1);
 			chartOfAccountservice.saveCa(ca);
 			System.out.println("saved" + ca.toString());
+//			showActiveChartOfAccount();
 			return "Record Inserted Successfully";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -65,28 +72,27 @@ public class ChartOfAccountController {
 			return "Error Inserting ChartOfAccount" + ca.getCaId();
 		}
 	}
-	
-//	@RequestMapping(value="/showCaByCompany/company/{company}", method= RequestMethod.POST)
-//	public @ResponseBody List<ChartOfAccount> showCaByCompany(@PathVariable int company){
-//		System.out.println(chartOfAccountservice.getAllCaByCompany(company));
-//		return chartOfAccountservice.getAllCaByCompany(company);
-//	}
-	
-	@RequestMapping(value="/deleteCa/{id}", method=RequestMethod.POST)
-	public void deleteCa(@PathVariable Long id) {
+
+	/*
+	Controller method for delete ChartOfAccount from database of a company
+	 */
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
+	@ResponseBody public void deleteCa(@PathVariable Long id) {
 		try {
-			ChartOfAccount ca = new ChartOfAccount();
-			ca.setId(id);
-			chartOfAccountservice.disableCa(id);
-			System.out.println("Deleted Successfully! Id= "+ca.getCaCode()+ ca.getCaId() + "Name : "+ ca.getCaName());
-			chartOfAccountservice.getAllActiveCa(ca.getCompany());
+			int company = 1;
+			chartOfAccountservice.disableCa(id, company);
+			System.out.println("Deleted Successfully! Id= " + id);
+			chartOfAccountservice.getAllActiveCa(company);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Error deleting ca");
 		}
 	}
 
-
-	@RequestMapping(value = "/caSearch" , method = RequestMethod.GET)
+	/*
+	Search Chart Of Account
+	 */
+	@RequestMapping(value = "/search/search" , method = RequestMethod.GET)
 	public List<ChartOfAccount> getAllCaByIdOrName(@RequestParam("search") String search){
 
 		try {
@@ -99,6 +105,12 @@ public class ChartOfAccountController {
 		}
 
 	}
+
+//	@RequestMapping(value = "/findById/{id}")
+//	public ChartOfAccount findById(@PathVariable ChartOfAccount id){
+//
+//		return chartOfAccountservice.findById(id);
+//	}
 
 
 

@@ -39,10 +39,10 @@
 
     </style>
 
+
    
-    <!-- Bootstrap core CSS -->    
+    <!-- Bootstrap and fontawesome core CSS -->
     <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/lib/fontawesome/css/fontawesome.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/software-main.css" rel="stylesheet">
@@ -52,11 +52,10 @@
     <link href="/css/easy-autocomplete.themes.min.css" rel="stylesheet">
     <link href="/css/jquery-ui.min.css" rel="stylesheet">
     <link href="/css/toastr.css" rel="stylesheet">
-       
-    
+
+    <%--FontAwesome Bootstrap Js--%>
+    <script src="/lib/bootstrap/js/bootstrap.js"></script>
     <script src="/js/jquery-3.1.1.min.js"></script>
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/fontawesome/js/fontawesome.js"></script>
     <script src="/js/jquery.dataTables.min.js"></script>    
     <script src="/js/myCustomJsFunctions.js"></script>
     <script src="/js/bootstrap-select.min.js"></script>

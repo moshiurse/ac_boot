@@ -6,20 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" src="/views/js/chartofaccount.js"></script>
 <link href="views/css/common.css" rel="stylesheet"></link>
-<link href="views/css/chartofaccount.css" rel="stylesheet"></link>
 
 </head>
 <body>
 <div class="row">
-	<div class="col-md-4"></div>
-	<div class="col-md-8">
+	<div class="col-md-5">
 	
 	<div class="card mx-auto text-center">
         <div class="card-header">
             <h1>Create Chart Of Account!</h1>
             <hr>
             <div class="hidden alert-success" id="successmsg">Successfully Inserted Data</div>
-            <div class="hidden alert-danger" id="errormsg">Failed to Insert</div>
+            <div class="hidden alert-danger" id="errormsg">Failed to Insert Chart Of Account</div>
         </div>
         <div class="card-body text-center">
             <form action="">
@@ -50,13 +48,41 @@
                     <span class="error" id="ertype"></span>
                 </div>
                           
-                <input type="submit" class="btn btn-lg btn-acc" value="Create Head" id="createhead">
+                <input type="submit" class="btn btn-lg btn-acc" value="Create Head" id="create">
             </form>
         </div>
     </div>
-	
-	
 	</div>
+
+    <div class="col-md-7">
+
+        <div class="card mx-auto text-center">
+            <div class="card-header">
+                <h2>Show Chart Of Account</h2>
+
+                <div class="card-body text-center">
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search chart of account">
+                    <div class="input-group-append">
+                        <a href="search" class="btn btn-warning" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <%-- Load Table By Jquery--%>
+                    <div id="caTable"></div>
+                <%-- End Load By Jquery--%>
+
+                <hr>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 </div>
 
 </body>

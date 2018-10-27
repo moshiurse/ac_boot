@@ -8,7 +8,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.project.accounting.model.ChartOfAccount;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+
+import javax.transaction.Transactional;
 
 public interface ChartOfAccountRepository extends JpaRepository<ChartOfAccount, Long> {
 
@@ -20,15 +23,18 @@ public interface ChartOfAccountRepository extends JpaRepository<ChartOfAccount, 
 	List<ChartOfAccount> showAllActiveCa(@Param("company") int company);
 
 //	Delete/ partially disable a Chart Of Account
-	@Query("update ChartOfAccount ca set ca.enable = 'false' where ca.id = :caId")
-	void disableCa(@Param("caId") Long caId);
+	@Transactional
+	@Modifying
+	@Query("update ChartOfAccount ca set ca.enable = 0 where ca.id = :id and ca.company = :company")
+	void disableCa(@Param("id") Long id,@Param("company") int company);
 
 //	Find Chart Of Account by id or name
 	@Query("select ca from ChartOfAccount ca where ca.company = :company and (ca.caName like \'%:searchValue%\'" +
 			" or ca.caId like \'%:searchValue%\') and ca.enable= 1")
-	List<ChartOfAccount> findCaByIdOrName(@Param("searchvalue") String searchValue, @Param("company") int company);
+	List<ChartOfAccount> findCaByIdOrName(@Param("searchValue") String searchValue, @Param("company") int company);
 
-// company add to search
+//	Find By Id
+	ChartOfAccount findById(ChartOfAccount id);
 
 
 

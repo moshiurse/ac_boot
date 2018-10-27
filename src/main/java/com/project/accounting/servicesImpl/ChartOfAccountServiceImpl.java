@@ -57,13 +57,18 @@ public class ChartOfAccountServiceImpl implements ChartOfAccountService{
 
 
 	@Override
-	public void disableCa(Long id) {
+	public void disableCa(Long id, int company) {
 
-		chartOfAccountRepository.disableCa(id);
+		chartOfAccountRepository.disableCa(id, company);
 	}
 
+@Override
+public ChartOfAccount findById(ChartOfAccount id) {
+	return chartOfAccountRepository.findById(id);
+}
 
-	@Override
+
+@Override
 	public List<ChartOfAccount> getAllCaOfDomain() {
 
 		return chartOfAccountRepository.findAll();
