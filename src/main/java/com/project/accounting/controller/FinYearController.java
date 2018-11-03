@@ -1,5 +1,7 @@
 package com.project.accounting.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +14,25 @@ import com.project.accounting.model.FinYear;
 import com.project.accounting.servicesImpl.FinYearServiceImpl;
 
 @Controller()
+@RequestMapping("/fin")
 public class FinYearController {
 
 	@Autowired
 	FinYearServiceImpl finYearService;
 
-	@PostMapping("/saveFinYear")
+	@PostMapping("/save")
 	public @ResponseBody String saveFinYear(FinYear finYear) {
 
 		try {
+			finYear.setCompany(1);
+			finYear.setEnabled(1);
+			finYear.setFinYearNo(1222);
+			String sDate="01/12/2018";
+			String eDate="11/09/2018";
+			Date startDate=new SimpleDateFormat("dd/MM/yyyy").parse(sDate);
+			Date endDate=new SimpleDateFormat("dd/MM/yyyy").parse(eDate);
+			finYear.setStartDate(startDate);
+			finYear.setEndDate(endDate);
 			finYearService.saveFinYear(finYear);
 			return "Financial Year saved successfully";
 		} catch (Exception e) {
@@ -29,29 +41,30 @@ public class FinYearController {
 		}
 	}
 
-	@PostMapping("/updateFinYear")
-	public void updateFinYear(FinYear finYear){
 
-		finYearService.saveFinYear(finYear);
-		System.out.println("Update Fin Year");
+	@GetMapping("/showAll/{company}")
+	public @ResponseBody List<FinYear> showAllFinYearByCompany(@PathVariable("company") int company){
+
+		return finYearService.showAllFinYearByCompany(company);
 	}
 
-	@GetMapping("/showFinYear/{company}")
-	public @ResponseBody List<FinYear> showFinYearByCompany(@PathVariable ("company") int company){
-
-		return finYearService.getFinYearByCompany(1);
-	}
-
-	@PostMapping("/showFinYear")
+	@GetMapping("/showAll")
 	public @ResponseBody List<FinYear> showFinYear(){
 
-		return finYearService.getAllFinYear();
+		return finYearService.showAllFinYear();
 	}
 
-	@PostMapping("/deleteFinYear")
-	public void deleteFinYear (FinYear finYear){
+	@GetMapping("/showActive/{company}")
+	public @ResponseBody List<FinYear> showActiveFinYearByCompany(@PathVariable("company") int company){
 
-		finYearService.deleteFinYear(finYear);
+		return finYearService.showActiveFinYearByCompany(company);
+	}
+
+	@PostMapping("/disable/{id}")
+	@ResponseBody public void deleteFinYear (@PathVariable("id") Long id){
+
+		int company = 1;
+		finYearService.disableFinYear(id, company);
 	}
 
 }

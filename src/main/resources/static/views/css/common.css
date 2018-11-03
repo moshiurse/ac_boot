@@ -35,6 +35,7 @@ label, input, textarea, select {
 }
 
 .table {
+    color: white;
 	background: transparent;
 	padding: 5px;
 }

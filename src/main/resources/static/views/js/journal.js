@@ -5,6 +5,8 @@
 		checkedBox();
 		showCa();
 		showProject();
+		// checkCa();
+
 		
 //		---------- End Function Calling--------------
 		
@@ -109,7 +111,7 @@
 		//--------------------Start - Project Code to combo box----------------------
 		function showCa(){
 			
-			$.post("showChartOfAccount", function(ca){
+			$.post("ca/showActive", function(ca){
 				
 				var option = '<select id="ca" name="ca" class="form-control"><option value="0">Select Head</option>';
 				
@@ -146,20 +148,18 @@
 		}
 //--------------------End - Show Bank Account to combo box----------------------
 		
-		// ------------------- Start- Save Button function----------------------------- 
+		// ------------------- Start- Add Button Click function-----------------------------
  		 $("#add").click(function(event){
  			 if(validator()){
- 				 
- 				var row = {};
  				
 				 var element = {chartOfAccId:[], debit:[], credit:[],
 				 	 chequeNo:[], projectCode:[], mrNo:[], departmentId:[]};
 				 	
 				 	var data= [];
-		 			
-		 			element["chartOfAccId"] = $("#controllhead").val();
-		 		element["debit"] = $("#debit").val();
-		 		element["credit"] = $("#credit").val();
+
+				element["chartOfAccId"] = $("#ca").val();
+		 		element["debit"] = $("#amount").val();
+		 		element["credit"] = $("#amount").val();
 		 		element["chequeNo"] = $("#chequeno").val();
 		 		element["projectCode"] = $("#project").val();
 		 		element["mrNo"] = $("#mrno").val();
@@ -169,10 +169,10 @@
 		 		
 		 		alert(JSON.stringify(data));
 		 		var duplicate = false;
-		 		$('#showtable tbody tr').each(function () {
+		 		$('#journalTable tbody tr').each(function () {
 		        	
 			        $controllhead = $(this).find('td:eq(0)').text();
-			        if ($controllhead == $('#controllhead').val()) {
+			        if ($controllhead == $('#ca').val()) {
 			            alert('ERROR DUPLICATE CH');
 			           duplicate = true;
 			            return;
@@ -182,12 +182,10 @@
 		        
 		 		if(duplicate == false ){
 		 			var dataTable = '<tbody><tr><td>'+element["chartOfAccId"]+'</td><td>'
-						+element["debit"]+'</td><td>'+element["credit"]
-						+'</td><td>'+element["chequeNo"]+'</td><td>'+element["projectCode"]
-						+'</td><td>'+element["mrNo"]+'</td><td>'+element["departmentId"]
-						+'</td></tr></tbody>';
+						+element["projectCode"]+'</td><td>'+element["departmentId"]
+						+'</td><td>'+element["debit"]+'</td><td>'+element["credit"]+'</tr></tbody>';
 					
- 		 		  $("#showtable").append(dataTable);
+ 		 		  $("#journalTable").append(dataTable);
 		 		} else {
 		 			alert("You cant add same head more then one");
 		 		}
@@ -246,6 +244,5 @@
 	 			
 })
 // ------------------- End Of  SaveVoucher Button
-
 	
 	}); // End of document ready()

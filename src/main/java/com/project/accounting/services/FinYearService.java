@@ -11,10 +11,13 @@ public interface FinYearService {
 
 	FinYear updateFinYear(FinYear finYear);
 
-	void deleteFinYear(FinYear finYear);
+	void disableFinYear(Long id, int company);
 
-	List<FinYear> getAllFinYear();
+	List<FinYear> showActiveFinYearByCompany(int company);
 	
-	List<FinYear> getFinYearByCompany(int company);
+	List<FinYear> showAllFinYearByCompany(int company);
+
+	List<FinYear> showAllFinYear();
+
 
 }

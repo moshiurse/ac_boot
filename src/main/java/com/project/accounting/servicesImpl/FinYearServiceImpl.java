@@ -1,11 +1,7 @@
 package com.project.accounting.servicesImpl;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.project.accounting.model.Company;
 import com.project.accounting.model.FinYear;
 import com.project.accounting.repository.FinYearRepository;
 import com.project.accounting.services.FinYearService;
@@ -28,22 +24,23 @@ public class FinYearServiceImpl implements FinYearService{
 	}
 
 	@Override
-	public void deleteFinYear(FinYear finYear) {
+	public void disableFinYear(Long id, int company) {
 
-		finYear= finYearRepository.findById(finYear.getFinYearId()).get();
-		finYearRepository.delete(finYear);
+		finYearRepository.disableFinYear(id, company);
 	}
 
 	@Override
-	public List<FinYear> getAllFinYear() {
-
-		return finYearRepository.findAll();
+	public List<FinYear> showActiveFinYearByCompany(int company) {
+		return finYearRepository.showActiveFinYearByCompany(company);
 	}
 
 	@Override
-	public List<FinYear> getFinYearByCompany(int company) {
-		
+	public List<FinYear> showAllFinYearByCompany(int company) {
 		return finYearRepository.findByCompany(company);
 	}
 
+	@Override
+	public List<FinYear> showAllFinYear() {
+		return finYearRepository.findAll();
+	}
 }
