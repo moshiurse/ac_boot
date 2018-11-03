@@ -92,26 +92,20 @@ public class ChartOfAccountController {
 	/*
 	Search Chart Of Account
 	 */
-	@RequestMapping(value = "/search/search" , method = RequestMethod.GET)
-	public List<ChartOfAccount> getAllCaByIdOrName(@RequestParam("search") String search){
+	@RequestMapping(value = "/search" , method = RequestMethod.GET)
+	public List<ChartOfAccount> getAllCaByIdOrName(@RequestParam(value = "searchValue", required = false) String searchValue){
 
 		try {
 			int company = 1;
-			System.out.println("Searching with "+search);
-			return chartOfAccountservice.getAllCaByIdOrName(search, company);
+			System.out.println("Searching with "+searchValue);
+			return chartOfAccountservice.getAllCaByIdOrName(searchValue, company);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 
+
 	}
-
-//	@RequestMapping(value = "/findById/{id}")
-//	public ChartOfAccount findById(@PathVariable ChartOfAccount id){
-//
-//		return chartOfAccountservice.findById(id);
-//	}
-
 
 
 }

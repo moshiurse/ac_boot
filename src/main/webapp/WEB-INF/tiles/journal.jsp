@@ -26,15 +26,9 @@
             </div>   
              <div class="form-group">
                 	<div class="row">
-                	<div class="col-md-6">
+                	<div class="text-center">
                 	<input name="transactiontype" type="radio" value="1" checked><label>Cash</label>
                 	<input name="transactiontype" type="radio" value="2"><label>Bank</label>
-                	</div>
-                	
-                	<div class="col-md-6">
-                	<input name="journaltype" type="radio" value="1" checked><label>Payment</label>
-                	<input name="journaltype" type="radio" value="2"><label>Recieve</label>
-                	</div>
                 	</div>
                 </div>
             
@@ -42,7 +36,7 @@
             <div class="form-group">
             <label class="col-md-2 control-label">voucher No: </label>
             <div class="col-md-4">
-            <input type="number" name="voucherno" id="voucherno" class="form-control" readonly>
+            <input type="number" name="voucherno" id="voucherno" class="form-control">
             </div>
             <label class="col-md-2 control-label">Voucher Date: </label>
             <div class="col-md-4">
@@ -58,7 +52,7 @@
             <div id="journalca"></div>
             <span class="error" id="erca"></span>
             </div>
-            <label class="col-md-2 control-label">Project:  </label>
+            <label class="col-md-2 control-label">Project: </label>
             <div class="col-md-4">
             <div id="journalproject"></div>
             <span class="error" id="erproject"></span>
@@ -77,13 +71,13 @@
             </select>
             <span class="error" id="erdept"></span>
             </div>
-            <label class="col-md-2 control-label">Bank Name:  </label>
+            <label class="col-md-2 control-label">Bank Name: </label>
             <div class="col-md-4">
             <select id="bank" name="bank" class="form-control">
             <option value="0">Select Bank</option>
             </select>
             <span class="error" id="erbank"></span>
-            </div>            
+            </div>
             </div>
             
             <div class="form-group">
@@ -114,9 +108,9 @@
             <span class="error" id="ernarration"></span>
             </div>
             </div>
-            
-            
-            <input type="submit" class="btn btn-lg btn-acc" value="ADD" id="add">
+                 <input type="submit" class="btn btn-lg btn-acc" value="ADD" id="add">
+                 <input type="submit" class="btn btn-lg btn-acc" value="Finish" id="finish">
+                 <%--<a href="" class="btn btn-lg btn-acc" id="add">Random</a>--%>
             
    <table class="table table-bordered text-center">
     <thead>
@@ -128,6 +122,7 @@
         <th>Credit</th>
       </tr>
     </thead>
+       <div id="journalTable"></div>
     </table>
     
     <input type="submit" class="btn btn-lg btn-acc" value="Submit to Journal">

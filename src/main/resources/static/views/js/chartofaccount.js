@@ -1,3 +1,6 @@
+var updateCa;
+var deleteCa
+
 $(document).ready(function(){
 	
 //	-----------  Called Function --------------
@@ -27,6 +30,32 @@ $(document).ready(function(){
 	
 //	-----------  End show parent --------------
 
+
+    //	-------------  Show ALL Chart Of Account Method in Table------------------
+    function showALLCa(){
+
+        $.post("ca/showAll", function(ca){
+
+            var option = '<table class="table"><thead><tr><th>ID</th><th>Name</th><th>Parent</th>'+
+                '<th>Type</th><th>Actions</th></tr></thead><tbody>';
+
+            for(var key in ca){
+
+                option += '<tr><td>'+ca[key].caId+'</td><td>'+ca[key].caName+'</td><td>'+ca[key].caParent+
+                    '</td><td>'+ca[key].type+'</td><td><a href=""  onclick="update('+ ca[key].id+",'" + ca[key].caId+ ", '"+ ca[key].caName+", '"+ ca[key].caParent+" '" + ca[key].type+"'" +')"><i class="glyphicon glyphicon-edit"></i>'+
+                    '</a><a href=""  onclick="deleteCa('+ ca[key].id+ ')"><i class="glyphicon glyphicon-trash"></i></a></td></tr>';
+
+            }
+
+            option += '</tbody></table>';
+
+            $("#").html(option);
+        });
+    }
+
+    //	------------- End Show All Chart Of Account Method in Table------------------
+
+/*
     //	-------------  Show Active Chart Of Account Method in Table------------------
     function showActiveCa(){
 
@@ -43,13 +72,13 @@ $(document).ready(function(){
                 }
                 if(ca[key].type == 1){
                     ca[key].type = "Debit";
-				}else {
+                }else {
                     ca[key].type = "Credit";
 
                 }
                 option += '<tr><td>'+ca[key].caId+'</td><td>'+ca[key].caName+'</td><td>'+ca[key].caParent+
-                    '</td><td>'+ca[key].type+'</td><td><a href=""  onclick="updateCa('+ ca[key].id+",'" + ca[key].caId+ ", '"+ ca[key].caName+", '" + ca[key].caParent+", '" + ca[key].caParent+ ')"><i class="glyphicon glyphicon-edit"></i>'+
-                    '</a><a href=""  onclick="deleteCa('+ ca[key].id+ ')"><i class="glyphicon glyphicon-trash"></i></a></td></tr>';
+                    '</td><td>'+ca[key].type+'</td><td><a class="btn btn-warning" href="" onclick="updateCa('+ ca[key].id+",'" + ca[key].caId+ ", '"+ ca[key].caName+", '"+ ca[key].caParent+" '" + ca[key].type+"'" +')"><i class="glyphicon glyphicon-edit"></i>'+
+                    '</a><a class="btn btn-danger" href=""  onclick="deleteCa('+ ca[key].id+ ')"><i class="glyphicon glyphicon-trash"></i></a></td></tr>';
 
 
             }
@@ -62,29 +91,7 @@ $(document).ready(function(){
 
     //	------------- End Show Active Chart Of Account Method in Table------------------
 
-    //	-------------  Show ALL Chart Of Account Method in Table------------------
-    function showALLCa(){
-
-        $.post("ca/showAll", function(ca){
-
-            var option = '<table class="table"><thead><tr><th>ID</th><th>Name</th><th>Parent</th>'+
-                '<th>Type</th><th>Actions</th></tr></thead><tbody>';
-
-            for(var key in ca){
-
-                option += '<tr><td>'+ca[key].caId+'</td><td>'+ca[key].caName+'</td><td>'+ca[key].caParent+
-                    '</td><td>'+ca[key].type+'</td><td><a href=""  onclick="updateCa('+ ca[key].caId+",'" + ca[key].caId+ ", '"+ ca[key].caId+", '" + ca[key].caId+"'" +')"><i class="glyphicon glyphicon-edit"></i>'+
-                    '</a><a href=""  onclick="deleteCa('+ ca[key].id+ ')"><i class="glyphicon glyphicon-trash"></i></a></td></tr>';
-
-            }
-
-            option += '</tbody></table>';
-
-            $("#").html(option);
-        });
-    }
-
-    //	------------- End Show All Chart Of Account Method in Table------------------
+*/
 
 
 //	------------ Validation Method  ------------------
@@ -158,11 +165,74 @@ $(document).ready(function(){
 
 //	Function Update Chart Of Account
 
-	function  updateCa() {
+	updateCa =  function(id, caId, caName, type) {
+
+        alert("Update");
+        var id = id;
+        $("#headid").val(caId);
+        $("#headname").val(caName);
+        // $("#parent select").val(caParent);
+        $("#type").val(type);
+
 
     }
 
 
 // 	End Function Update Chart Of Account
+
+    //	Function Update Chart Of Account
+
+    function deleteca(cId) {
+
+        var id = $("#id").val(cId);
+        alert("Are you sure about to delete?");
+
+        $.post("ca/delete",{id:cId},function(data){
+
+            showActiveCa();
+
+            $("#msg").html("Data Deleted Successfully!!");
+            $("#msg").removeClass("hidden");
+        });
+    }
+
+
+// 	End Function Update Chart Of Account
+
+    //	-------------  Show Active Chart Of Account Method in Table------------------
+    function showActiveCa(){
+
+        $.post("ca/showActive", function(ca){
+
+            var option = '<table class="table"><thead><tr><th>ID</th><th>Name</th><th>Parent</th>'+
+                '<th>Type</th><th>Actions</th></tr></thead><tbody>';
+				var parent,type;
+            for(var key in ca){
+                if(ca[key].caParent == null) {
+					parent = "Head";
+                }else{
+                    parent = ca[key].caParent;
+				}
+                if(ca[key].type == 1){
+                    type = "Debit";
+                }else {
+                    type = "Credit";
+
+                }
+                option += '<tr><td>'+ca[key].caId+'</td><td>'+ca[key].caName+'</td><td>'+parent+
+                    '</td><td>'+type+'</td><td><a class="btn btn-warning" href="" onclick="updateCa('+ca[key].id+','+ca[key].caId+', '+'"+ca[key].caName+"'+', '+ca[key].type+')"><i class="glyphicon glyphicon-edit"></i>'+
+                    '</a><a class="btn btn-danger" href=""  onclick="deleteCa('+ ca[key].id+ ')"><i class="glyphicon glyphicon-trash"></i></a></td></tr>';
+
+
+            }
+
+            option += '</tbody></table>';
+
+            $("#caTable").html(option);
+        });
+    }
+
+    //	------------- End Show Active Chart Of Account Method in Table------------------
+
 
 });

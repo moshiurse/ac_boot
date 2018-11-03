@@ -59,13 +59,14 @@
         <div class="card mx-auto text-center">
             <div class="card-header">
                 <h2>Show Chart Of Account</h2>
+                <h4 id="msg" class="hidden"></h4>
 
                 <div class="card-body text-center">
 
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search chart of account">
                     <div class="input-group-append">
-                        <a href="search" class="btn btn-warning" type="submit">
+                        <a href="search" class="btn btn-primary" type="submit">
                             <i class="glyphicon glyphicon-search"></i>
                         </a>
                     </div>
