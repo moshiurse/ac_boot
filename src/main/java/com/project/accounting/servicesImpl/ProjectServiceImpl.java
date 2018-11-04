@@ -1,6 +1,7 @@
 package com.project.accounting.servicesImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,34 +14,40 @@ public class ProjectServiceImpl implements ProjectService {
 	@Autowired
 	ProjectRepository projectRepository;
 
-	@Override
-	public Project saveCa(Project project) {
-		// TODO Auto-generated method stub
-		return projectRepository.save(project);
-	}
+@Override
+public Project saveProject(Project project) {
+	return projectRepository.save(project);
+}
 
-	@Override
-	public Project updateCa(Project project) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public void deleteProject(Long id, int company) {
+	projectRepository.disableProject(id, company);
+}
 
-	@Override
-	public void deleteCa(Project project) {
-		// TODO Auto-generated method stub
+@Override
+public Optional<Project> getProjectById(Long id) {
+	return projectRepository.findById(id);
+}
 
-	}
-
-	@Override
-	public Project getCaById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
+@Override
 	public List<Project> getAllProject() {
-		// TODO Auto-generated method stub
+
 		return projectRepository.findAll();
 	}
+
+@Override
+public List<Project> getActiveProject() {
+	return projectRepository.showActiveProject();
+}
+
+@Override
+public List<Project> getAllProjectByCompany(int company) {
+	return projectRepository.findByCompany(company);
+}
+
+@Override
+public List<Project> getActiveProjectByCompany(int company) {
+	return projectRepository.showActiveProjectByCompany(company);
+}
 
 }

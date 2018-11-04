@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name="project")
@@ -11,7 +12,7 @@ public class Project {
 	
 	@Id
 	@Column(name="project_id")
-	private int projectId;
+	private Long projectId;
 	
 	@Column(name="code")
 	private String projectCode;
@@ -22,23 +23,30 @@ public class Project {
 	@Column(name="address")
 	private String projectAddress;
 	
-	
-	@Column(name="category")
-	private String projectCategory;
-	
 	@Column(name="start")
-	private String projectStart;
+	private Date projectStart;
 	
 	@Column(name="finish")
-	private String finishDate;
+	private Date finishDate;
 	
 	@Column(name="company")
 	private int company;
+
+	@Column(name = "enabled")
+	private int enabled;
 	
 	@Column(name="created_by")
 	private String createdBy;
 
-	public String getProjectCode() {
+	public Long getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
+	}
+
+public String getProjectCode() {
 		return projectCode;
 	}
 
@@ -62,48 +70,59 @@ public class Project {
 		this.projectAddress = projectAddress;
 	}
 
-	public String getProjectCategory() {
-		return projectCategory;
-	}
-
-	public void setProjectCategory(String projectCategory) {
-		this.projectCategory = projectCategory;
-	}
-
-	public String getProjectStart() {
+	public Date getProjectStart() {
 		return projectStart;
 	}
 
-	public void setProjectStart(String projectStart) {
+	public void setProjectStart(Date projectStart) {
 		this.projectStart = projectStart;
 	}
 
-	public String getFinishDate() {
+	public Date getFinishDate() {
 		return finishDate;
 	}
 
-	public void setFinishDate(String finishDate) {
+	public void setFinishDate(Date finishDate) {
 		this.finishDate = finishDate;
 	}
 
+	public int getCompany() {
+		return company;
+	}
+
+	public void setCompany(int company) {
+		this.company = company;
+	}
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
 
 	public String getCreatedBy() {
-		return createdBy;
-	}
+			return createdBy;
+		}
 
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
-	@Override
-	public String toString() {
-		return "Project [projectId=" + projectId + ", projectCode=" + projectCode + ", projectName=" + projectName
-				+ ", projectAddress=" + projectAddress + ", projectCategory=" + projectCategory + ", projectStart="
-				+ projectStart + ", finishDate=" + finishDate + ", company=" + company + ", createdBy=" + createdBy
-				+ "]";
-	}
 
-
-	
-
+@Override
+public String toString() {
+	return "Project{" +
+			"projectId=" + projectId +
+			", projectCode='" + projectCode + '\'' +
+			", projectName='" + projectName + '\'' +
+			", projectAddress='" + projectAddress + '\'' +
+			", projectStart=" + projectStart +
+			", finishDate=" + finishDate +
+			", company=" + company +
+			", enabled=" + enabled +
+			", createdBy='" + createdBy + '\'' +
+			'}';
+}
 }
