@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 
-label {
+label ,span{
 	color: white;
 }
 

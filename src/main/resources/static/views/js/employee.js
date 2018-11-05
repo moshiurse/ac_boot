@@ -2,7 +2,7 @@ $(document).ready(function(){
 		
 		
 		$("#btnClear").click(function(){
-			clearForm();			
+			clearForm();
 		});
 		
 		var form = $('#submit_form');
