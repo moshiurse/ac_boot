@@ -1,21 +1,26 @@
 package com.project.accounting.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.project.accounting.model.Project;
 
 
 public interface ProjectService {
 	
-	Project saveCa(Project project);
+	Project saveProject(Project project);
 	
-	Project updateCa(Project project);
+	void deleteProject(Long id, int company);
 	
-	void deleteCa(Project project);
-	
-	Project getCaById(int id);
+	Optional<Project> getProjectById(Long id);
 	
 	List<Project> getAllProject();
+
+	List<Project> getActiveProject();
+
+	List<Project> getAllProjectByCompany(int company);
+
+	List<Project> getActiveProjectByCompany(int company);
 
 
 }
