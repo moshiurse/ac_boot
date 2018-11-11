@@ -19,23 +19,12 @@
             <hr>
         </div>
         <div class="card-body text-center">
-            <form action="">
+            <form action="/perform_login" method="post">
                 <div class="form-group">
-                    <input required type="text" class="form-control form-control-lg" placeholder="Username">
+                    <input required type="text" class="form-control form-control-lg" name="username" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <input required type="password" class="form-control form-control-lg" placeholder="Password">
-                </div>
-                <div class="form-group">
-                <div id="divcompany">
-                </div>
-                </div>
-                
-                
-                <div class="form-group">
-                    <select id="finyear" name="finyear" class="form-control">
-                    <option>Select Financial Year</option>
-                    </select>
+                    <input required type="password" class="form-control form-control-lg" name="password" placeholder="Password">
                 </div>
                 <div class="form-check text-center">
                     <input type="checkbox" class="form-check-input" id="check">

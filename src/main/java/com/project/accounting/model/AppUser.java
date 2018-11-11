@@ -1,28 +1,21 @@
 package com.project.accounting.model;
 
-import java.util.Set;
+import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="acc_users")
-public class AppUser {
+@Table(name="users")
+public class AppUser implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name="user_id")
-	private int id;
-	
+	private Long id;
+
 	@Column(name="fullname")
 	private String fullName;
 	
@@ -34,38 +27,45 @@ public class AppUser {
 	
 	@Column(name="password")
 	private String password;
+
+	@Column(name = "company")
+	private Integer company;
 	
 	@Column(name="enabled")
-	private boolean enable;
+	private int enabled;
 	
 	@Column(name="created_by")
 	private String createdBy;
 	
-	@OneToMany(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
-	@JoinTable(name="authority", joinColumns= @JoinColumn(name="user_id"))
-	private Set<Authority> authorities;
+	@ManyToMany(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
+	@JoinTable(name="authorities", joinColumns= {
+			@JoinColumn(name="user_name", referencedColumnName = "username"),
+	}, inverseJoinColumns = {
+			@JoinColumn(name="role_name", referencedColumnName = "name")
+	})
+	private List<Role> roles;
+
 
 	public AppUser() {
 		
 	}
 
-public AppUser(String fullName, String email, String userName,
-			   String password, boolean enable, String createdBy,
-			   Set<Authority> authorities) {
+public AppUser(String fullName, String email, String userName, String password,
+			   Integer company, int enabled, String createdBy) {
 	this.fullName = fullName;
 	this.email = email;
 	this.userName = userName;
 	this.password = password;
-	this.enable = enable;
+	this.company = company;
+	this.enabled = enabled;
 	this.createdBy = createdBy;
-	this.authorities = authorities;
 }
 
-public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -101,48 +101,50 @@ public int getId() {
 		this.password = password;
 	}
 
-	public boolean isEnable() {
-		return enable;
+	public Integer getCompany() {
+		return company;
 	}
 
-	public void setEnable(boolean enable) {
-		this.enable = enable;
-	}	
+	public void setCompany(Integer company) {
+		this.company = company;
+	}
 
+	public int getEnabled() {
+		return enabled;
+	}
 
-
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
 
 	public String getCreatedBy() {
 		return createdBy;
 	}
 
-
-
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
-
-
-	public Set<Authority> getAuthorities() {
-		return authorities;
+	public List<Role> getRoles() {
+		return roles;
 	}
 
-
-
-	public void setAuthorities(Set<Authority> authorities) {
-		this.authorities = authorities;
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
-
-
-	@Override
+@Override
 	public String toString() {
-		return "AppUser [id=" + id + ", fullName=" + fullName + ", email=" + email + ", UserName=" + userName
-				+ ", password=" + password + ", enable=" + enable + ", createdBy=" + createdBy + ", authorities="
-				+ authorities + "]";
+		return "AppUser{" +
+				"fullName='" + fullName + '\'' +
+				", email='" + email + '\'' +
+				", userName='" + userName + '\'' +
+				", password='" + password + '\'' +
+				", company=" + company +
+				", enabled=" + enabled +
+				", createdBy='" + createdBy + '\'' +
+				", roles=" + roles +
+				'}';
 	}
-
-
 
 }

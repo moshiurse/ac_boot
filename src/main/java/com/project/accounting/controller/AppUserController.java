@@ -1,30 +1,59 @@
 package com.project.accounting.controller;
 
-import com.project.accounting.model.Authority;
-import org.apache.catalina.User;
+import com.project.accounting.model.Role;
+import com.project.accounting.services.AppUserService;
+import com.project.accounting.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.project.accounting.model.AppUser;
-import com.project.accounting.servicesImpl.AppUserServiceImpl;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 @Controller
+@RequestMapping("/user")
 public class AppUserController {
 	
 	@Autowired
-	private AppUserServiceImpl appUserService;
+	private AppUserService appUserService;
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
+	@Autowired
+	private RoleService roleService;
 	
-	@RequestMapping("/saveuser")
-	public String saveUser(AppUser user) {
-		user.setEnable(true);
-		Authority authority = new Authority(user.getId(), 2, 1);
-		appUserService.saveUser(user);
-		return "user saved!";
+	@PostMapping("/save")
+	@ResponseBody
+	public String saveAdmin() {
+		AppUser appUser= new AppUser();
+		try {
+			appUser.setEmail("rmoshiur@gmail.com");
+			appUser.setPassword("11111");
+			appUser.setFullName("A.H.M Moshiur Rahman");
+			appUser.setUserName("moshiur");
+			appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
+			appUser.setEnabled(1);
+			List<Role> roles = new ArrayList<>();
+			Role role = roleService.findRoleByName("ROLE_ADMIN");
+			roles.add(role);
+			appUser.setRoles(roles);
+
+
+			appUserService.saveUser(appUser);
+			return "Successfully registered";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "Error saving data "+appUser.getId();
+		}
+
 	}
 
+	@GetMapping("/all")
+	public @ResponseBody List<AppUser> getAllAppUser(){
+		int company =1;
+		return appUserService.showActiveUserBycompany(company);
+	}
 }

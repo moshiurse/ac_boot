@@ -1,5 +1,6 @@
 $(document).ready(function(){
-		
+
+    viewEmployee();
 		
 		$("#btnClear").click(function(){
 			clearForm();
@@ -61,7 +62,35 @@ $(document).ready(function(){
 	function clearForm(){
 	    $('#btnSubmit').prop('disabled',false);
 	    $("#submit_form").trigger('reset'); 
-	    $("#tempId").val('');	    
+	    $("#tempId").val('');
 	}
+
+	function viewEmployee(){
+
+        function showALLEmployee(){
+
+            $.post("ca/showAll", function(emp){
+
+                var option = '<table class="table"><thead><tr><th>ID</th><th>Name</th><th>Parent</th>'+
+                    '<th>Type</th><th>Actions</th></tr></thead><tbody>';
+
+                for(var key in ca){
+
+                    option += '<tr><td>'+ca[key].caId+'</td><td>'+ca[key].caName+'</td><td>'+ca[key].caParent+
+                        '</td><td>'+ca[key].type+'</td><td><a href=""  onclick="update('+ ca[key].id+",'" + ca[key].caId+ ", '"+ ca[key].caName+", '"+ ca[key].caParent+" '" + ca[key].type+"'" +')"><i class="glyphicon glyphicon-edit"></i>'+
+                        '</a><a href=""  onclick="deleteCa('+ ca[key].id+ ')"><i class="glyphicon glyphicon-trash"></i></a></td></tr>';
+
+                }
+
+                option += '</tbody></table>';
+
+                $("#employeeTable").html(option);
+            });
+        }
+
+        //	------------- End Show All Chart Of Account Method in Table------------------
+
+
+    }
 
 });

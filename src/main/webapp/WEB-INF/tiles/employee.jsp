@@ -52,7 +52,7 @@
                 
                 <div class="form-group">
                 	<label>Enable?</label>
-                    <input required type="checkbox" class="" name="enable" id="enable">
+                    <input required type="checkbox" class="" name="enabled" id="enabled">
                 </div>
                       
                 <input type="submit" class="btn btn-lg btn-acc" value="Create Employee" id="create">
