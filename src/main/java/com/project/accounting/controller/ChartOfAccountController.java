@@ -61,7 +61,7 @@ public class ChartOfAccountController {
 	@ResponseBody public String saveChartOfAccount(@RequestBody ChartOfAccount ca) {
 		try {
 			ca.setCompany(1);
-//			ca.setEnable(1);
+//			ca.setEnabled(1);
 			chartOfAccountservice.saveCa(ca);
 			System.out.println("saved" + ca.toString());
 //			showActiveChartOfAccount();

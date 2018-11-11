@@ -7,9 +7,9 @@
 		
       function validator(){
 
-            var username	= $.trim($("#username").val());
+            var userName	= $.trim($("#userName").val());
 
-            if(username == ""){
+            if(userName == ""){
                 $("#errorMessage").html("!! Please enter your email address");
                 $("#errorMessage").removeClass("hidden");
 
@@ -31,7 +31,7 @@
 
                 var data = {};
 
-                data["userName"] = $("#username").val();
+                data["userName"] = $("#userName").val();
                 data["password"] = $("#password").val();
 
                 alert(JSON.stringify(data));
@@ -136,9 +136,9 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="control-label requiredField" for="username">Email Address</label>
+                            <label class="control-label requiredField" for="userName">Email Address</label>
                             <div class="form-group">
-                                <input id="username" name="username" placeholder="Enter your email" class="form-control" type="text" />
+                                <input id="userName" name="userName" placeholder="Enter your email" class="form-control" type="text" />
                             </div>
                         </div>
 

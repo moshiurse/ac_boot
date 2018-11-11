@@ -1,13 +1,14 @@
 package com.project.accounting.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="role")
-public class Role {
+public class Role implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name="role_id")
@@ -19,6 +20,9 @@ public class Role {
 	@Column(name="level")
 	int roleLevel;
 
+	@ManyToMany(mappedBy = "roles")
+	List<AppUser> appUsers;
+
 	public Role() {
 		
 	}
@@ -27,6 +31,12 @@ public Role(int roleId, String roleName, int roleLevel) {
 	this.roleId = roleId;
 	this.roleName = roleName;
 	this.roleLevel = roleLevel;
+}
+
+public Role(String roleName, int roleLevel, List<AppUser> appUsers) {
+	this.roleName = roleName;
+	this.roleLevel = roleLevel;
+	this.appUsers = appUsers;
 }
 
 public int getRoleId() {
@@ -53,7 +63,15 @@ public int getRoleId() {
 		this.roleLevel = roleLevel;
 	}
 
-	@Override
+	public List<AppUser> getAppUsers() {
+		return appUsers;
+	}
+
+	public void setAppUsers(List<AppUser> appUsers) {
+		this.appUsers = appUsers;
+	}
+
+@Override
 	public String toString() {
 		return "Role [roleId=" + roleId + ", roleName=" + roleName + ", roleLevel=" + roleLevel + "]";
 	}
