@@ -11,12 +11,13 @@ import com.project.accounting.model.VoucherMaster;
 import com.project.accounting.servicesImpl.VoucherServiceImpl;
 
 @Controller
+@RequestMapping("/voucher")
 public class VoucherController {
 	
 	@Autowired
 	VoucherServiceImpl voucherService;
 	
-	@RequestMapping(value= "/saveVoucher",method= RequestMethod.POST)
+	@RequestMapping(value= "/save",method= RequestMethod.POST)
 	public String saveVoucher(@RequestBody VoucherMaster voucherMaster) {
 		voucherMaster.setCompanyId(1);
 		voucherMaster.setFinYear(1);

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.project.accounting.model.AppUser;
 
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Controller
@@ -24,11 +25,14 @@ public class AppUserController {
 
 	@Autowired
 	private RoleService roleService;
+
+	@Autowired
+	HttpSession httpSession;
 	
 	@PostMapping("/save")
 	@ResponseBody
-	public String saveAdmin() {
-		AppUser appUser= new AppUser();
+	public String saveAdmin(@RequestBody AppUser appUser) {
+
 		try {
 			appUser.setEmail("rmoshiur@gmail.com");
 			appUser.setPassword("11111");
@@ -40,7 +44,6 @@ public class AppUserController {
 			Role role = roleService.findRoleByName("ROLE_ADMIN");
 			roles.add(role);
 			appUser.setRoles(roles);
-
 
 			appUserService.saveUser(appUser);
 			return "Successfully registered";

@@ -92,7 +92,7 @@
 //--------------------Start - Project Code to combo box----------------------
 		function showProject() {
 			
-			$.post("showProject", function(project){
+			$.post("project/showActive", function(project){
 				
 				var option = '<select class="form-control" id="project" name="project"><option value="0">Select Project</option>';
 				

@@ -1,132 +1,70 @@
 $(document).ready(function(){
-	
-	var fullname = $.trim($('#regfullname').val());
-	var email = $.trim($('#regemail').val());
-	var username = $.trim($('#regusername').val());
-	var password = $.trim($('#regpassword').val());
-	var conpass = $.trim($('#regconpass').val());
-	
-	var passwordlength = password.length;
 
-	
-	function checkfullname(){
+    function validation (){
 
-		if(fullname == ""){
-			$('#regfullname').addClass("invalid");
-			$('#regfullname').removeClass("valid");
-			$('#erfullname').text("Full Name Must not empty");
-			return false;
-		}else {
-			$('#regfullname').addClass("valid");
-			$('#regfullname').removeClass("invalid");
-            $("#eremail").text("");
-			return true;
-		}	
-	}
-	
-	function checkemail(){
-		var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-		if(email == ""){
-			$('#regemail').addClass("invalid");
-			$('#regemail').removeClass("valid");
-            $('#eremail').text("Email Must not empty");
-			return false;
-		}else if(!pattern.test(email)){
+        var fullname = $.trim($('#regfullname').val());
+        var email = $.trim($('#regemail').val());
+        var username = $.trim($('#regusername').val());
+        var password = $.trim($('#regpassword').val());
+        var conpass = $.trim($('#regconpass').val());
+        var passwordlength = password.length;
+        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+
+        if(fullname == "") {
+            $('#regfullname').addClass("invalid");
+            $('#regfullname').removeClass("valid");
+            $("#errormsg").text("Please input your Full Name!");
+            return false;
+        }else if(email == ""){
             $('#regemail').addClass("invalid");
             $('#regemail').removeClass("valid");
-			$("#eremail").text("Invalid Email format");
-			return false;
-		}else {
-			$('#regemail').addClass("valid");
-			$('#regemail').removeClass("invalid");
-			$("#eremail").text("");
-			return true;
-		}
-		
-	}
-	
-	
-	function checkusername(){
-		
-		if(username == ""){
-			$('#regusername').addClass("invalid");
-			$('#regusername').removeClass("valid");
-            $("#erusername").text("Username Must Not empty");
-			return false;
-		}else {
-			$('#regusername').addClass("valid");
-			$('#regusername').removeClass("invalid");
-            $("#erusername").text("");
-			return true;
-		}		
-	}
-	
-	
-	function checkpassword(){
-		if(password == ""){
-			$('#regpassword').addClass("invalid");
-			$('#regpassword').removeClass("valid");
-            $("#erparent").text("Password Must Not Empty");
-			return false;
-		}else if(passwordlength <5){
+            $("#errormsg").text("Please input your Email !");
+            return false;
+        }else if(!pattern.test(email)){
+            $('#regemail').addClass("invalid");
+            $('#regemail').removeClass("valid");
+            $("#errormsg").text("Invalid Email format");
+            return false;
+        }else if(password == ""){
             $('#regpassword').addClass("invalid");
             $('#regpassword').removeClass("valid");
-			$('#erpassword').text("password should be at least 5 digit");
-			return false;
-		}else {
-			$('#regpassword').addClass("valid");
-			$('#regpassword').removeClass("invalid");
-            $("#erpassword").text("");
-			return true;
-		}		
-	}
-	
-	function checkconpass(){
-		if(conpass !== password){
-			$('#regconpass').addClass("valid");
-			$('#regconpass').removeClass("invalid");
-			$('#erconpass').text("confirm password should be matched with password");
-			return false;
-		}else {
-			$('#regconpass').addClass("valid");
-			$('#regconpass').removeClass("invalid");
-            $('#erconpass').text("");
-			return true;
-		}
-	}
-	
-	
-	function validation (){
-		
-		if(!checkfullname()){
-			return false;
-		}
-		
-		if(!checkemail()){
-			return false;
-		}
-		
-		if(!checkusername()){
-			return false;
-		}
-		
-		if(!checkpassword()){
-			return false;
-		}
-
-        if(!checkconpass()){
+            $("#errormsg").text("Please input Password !");
             return false;
+        }else if(passwordlength <5){
+            $('#regpassword').addClass("invalid");
+            $('#regpassword').removeClass("valid");
+            $('#errormsg').text("password should be at least 5 digit");
+            return false;
+        }else if(conpass !== password){
+            $('#regconpass').addClass("valid");
+            $('#regconpass').removeClass("invalid");
+            $('#errormsg').text("confirm password should be matched with password");
+            return false;
+        }else
+			alert("executed");
+        	$('#errormsg').text("");
+        	return true;
+
         }
-		
-		return true;
-	}
-	
+
 	$('#registration').click(function(event){
 		event.preventDefault();
 
-		
 		if(validation()){
-			alert("Registered Successfully");
+
+			$.ajax({
+				type: "POST",
+				url: "user/save",
+				data: JSON.stringify(data),
+				contentType: "application/json; charset=utf-8",
+				success: function () {
+					alert("Registered Successfully");
+                },
+				error: function () {
+                    alert("Registration Failed");
+                }
+			});
+
 		}else {
 			alert("Registered Failed!");
 		}

@@ -7,108 +7,108 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name="project")
+@Table(name = "project")
 public class Project {
-	
-	@Id
-	@Column(name="project_id")
-	private Long projectId;
-	
-	@Column(name="code")
-	private String projectCode;
-	
-	@Column(name="name")
-	private String projectName;
-	
-	@Column(name="address")
-	private String projectAddress;
-	
-	@Column(name="start")
-	private Date projectStart;
-	
-	@Column(name="finish")
-	private Date finishDate;
-	
-	@Column(name="company")
-	private int company;
 
-	@Column(name = "enabled")
-	private int enabled;
-	
-	@Column(name="created_by")
-	private String createdBy;
+@Id
+@Column(name = "project_id")
+private Long projectId;
 
-	public Long getProjectId() {
-		return projectId;
-	}
+@Column(name = "code")
+private String projectCode;
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
+@Column(name = "name")
+private String projectName;
+
+@Column(name = "address")
+private String projectAddress;
+
+@Column(name = "start")
+private Date projectStart;
+
+@Column(name = "finish")
+private Date finishDate;
+
+@Column(name = "company")
+private int company;
+
+@Column(name = "enabled")
+private int enabled;
+
+@Column(name = "created_by")
+ private String createdBy;
+
+public Long getProjectId() {
+	return projectId;
+}
+
+public void setProjectId(Long projectId) {
+	this.projectId = projectId;
+}
 
 public String getProjectCode() {
-		return projectCode;
-	}
+	return projectCode;
+}
 
-	public void setProjectCode(String projectCode) {
-		this.projectCode = projectCode;
-	}
+public void setProjectCode(String projectCode) {
+	this.projectCode = projectCode;
+}
 
-	public String getProjectName() {
-		return projectName;
-	}
+public String getProjectName() {
+	return projectName;
+}
 
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
+public void setProjectName(String projectName) {
+	this.projectName = projectName;
+}
 
-	public String getProjectAddress() {
-		return projectAddress;
-	}
+public String getProjectAddress() {
+	return projectAddress;
+}
 
-	public void setProjectAddress(String projectAddress) {
-		this.projectAddress = projectAddress;
-	}
+public void setProjectAddress(String projectAddress) {
+	this.projectAddress = projectAddress;
+}
 
-	public Date getProjectStart() {
-		return projectStart;
-	}
+public Date getProjectStart() {
+	return projectStart;
+}
 
-	public void setProjectStart(Date projectStart) {
-		this.projectStart = projectStart;
-	}
+public void setProjectStart(Date projectStart) {
+	this.projectStart = projectStart;
+}
 
-	public Date getFinishDate() {
-		return finishDate;
-	}
+public Date getFinishDate() {
+	return finishDate;
+}
 
-	public void setFinishDate(Date finishDate) {
-		this.finishDate = finishDate;
-	}
+public void setFinishDate(Date finishDate) {
+	this.finishDate = finishDate;
+}
 
-	public int getCompany() {
-		return company;
-	}
+public int getCompany() {
+	return company;
+}
 
-	public void setCompany(int company) {
-		this.company = company;
-	}
+public void setCompany(int company) {
+	this.company = company;
+}
 
-	public int getEnabled() {
-		return enabled;
-	}
+public int getEnabled() {
+	return enabled;
+}
 
-	public void setEnabled(int enabled) {
-		this.enabled = enabled;
-	}
+public void setEnabled(int enabled) {
+	this.enabled = enabled;
+}
 
-	public String getCreatedBy() {
-			return createdBy;
-		}
+public String getCreatedBy() {
+	return createdBy;
+}
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
+public void setCreatedBy(String createdBy) {
+	this.createdBy = createdBy;
+}
 
 
 @Override

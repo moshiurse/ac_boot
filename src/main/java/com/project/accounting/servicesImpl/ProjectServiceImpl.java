@@ -10,9 +10,9 @@ import com.project.accounting.repository.ProjectRepository;
 import com.project.accounting.services.ProjectService;
 
 public class ProjectServiceImpl implements ProjectService {
-	
-	@Autowired
-	ProjectRepository projectRepository;
+
+@Autowired
+ProjectRepository projectRepository;
 
 @Override
 public Project saveProject(Project project) {
@@ -30,10 +30,10 @@ public Optional<Project> getProjectById(Long id) {
 }
 
 @Override
-	public List<Project> getAllProject() {
+public List<Project> getAllProject() {
 
-		return projectRepository.findAll();
-	}
+	return projectRepository.findAll();
+}
 
 @Override
 public List<Project> getActiveProject() {
