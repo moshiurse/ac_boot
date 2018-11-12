@@ -18,12 +18,6 @@ public class FinYearServiceImpl implements FinYearService{
 	}
 
 	@Override
-	public FinYear updateFinYear(FinYear finYear) {
-		finYear= finYearRepository.findById(finYear.getFinYearId()).get();
-		return finYearRepository.save(finYear);
-	}
-
-	@Override
 	public void disableFinYear(Long id, int company) {
 
 		finYearRepository.disableFinYear(id, company);

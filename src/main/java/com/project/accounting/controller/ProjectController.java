@@ -21,29 +21,41 @@ public class ProjectController {
 		projectService.saveProject(project);
 		return "Project saved Successfully!";
 	}
-	
-	@GetMapping(value="admin/showAll")
-	public @ResponseBody List<Project> showAllProject(){
-		
-		return projectService.getAllProject();
-	}
-
-	@GetMapping("admin/showActive")
-	public @ResponseBody List<Project> showActive(){
-
-		return projectService.getActiveProject();
-	}
+//
+//	@GetMapping(value="admin/showAll")
+//	public @ResponseBody List<Project> showAllProject(){
+//
+//		return projectService.getAllProject();
+//	}
+//
+//	@GetMapping("admin/showActive")
+//	public @ResponseBody List<Project> showActive(){
+//
+//		return projectService.getActiveProject();
+//	}
 
 	@GetMapping(value="/showAll")
 	public @ResponseBody List<Project> showAllProjectByCompany(){
-		int company = 1;
-		return projectService.getAllProjectByCompany(company);
+		try {
+			int company = 1;
+			return projectService.getAllProjectByCompany(company);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@GetMapping("/showActive")
 	public @ResponseBody List<Project> showActiveByCompany(){
-		int company = 1;
-		return projectService.getActiveProjectByCompany(company);
+		try {
+			int company = 1;
+			return projectService.getActiveProjectByCompany(company);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(" Error show data");
+			return null;
+		}
+
 	}
 
 	@PostMapping("/delete/{id}")

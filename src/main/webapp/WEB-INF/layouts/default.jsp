@@ -44,6 +44,7 @@
     <!-- Bootstrap and fontawesome core CSS -->
     <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="/views/css/common.css" rel="stylesheet"></link>
     <!-- Custom styles for this template -->
     <link href="/css/software-main.css" rel="stylesheet">
     <link href="/css/jquery.dataTables.min.css" rel="stylesheet">

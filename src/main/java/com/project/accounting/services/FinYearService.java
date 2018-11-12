@@ -9,8 +9,6 @@ public interface FinYearService {
 	
 	FinYear saveFinYear(FinYear finYear);
 
-	FinYear updateFinYear(FinYear finYear);
-
 	void disableFinYear(Long id, int company);
 
 	List<FinYear> showActiveFinYearByCompany(int company);

@@ -153,7 +153,7 @@ $(document).ready(function(){
 						$("#errormsg").removeClass("hidden");
 						$("#successmsg").addClass("hidden");
 						alert(error);
-						
+
 					}
 				});
 			}

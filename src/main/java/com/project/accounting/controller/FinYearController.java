@@ -13,6 +13,8 @@ import com.project.accounting.model.Company;
 import com.project.accounting.model.FinYear;
 import com.project.accounting.servicesImpl.FinYearServiceImpl;
 
+import javax.servlet.http.HttpSession;
+
 @Controller()
 @RequestMapping("/fin")
 public class FinYearController {
@@ -20,11 +22,15 @@ public class FinYearController {
 	@Autowired
 	FinYearServiceImpl finYearService;
 
+	@Autowired
+	HttpSession httpSession;
+
 	@PostMapping("/save")
 	public @ResponseBody String saveFinYear(FinYear finYear) {
 
 		try {
-			finYear.setCompany(1);
+//			int company  = (Integer) httpSession.getAttribute("company");
+//			finYear.setCompany(company);
 			finYear.setEnabled(1);
 			finYear.setFinYearNo(1222);
 			String sDate="01/12/2018";
