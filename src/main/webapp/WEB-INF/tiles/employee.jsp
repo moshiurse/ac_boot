@@ -2,8 +2,6 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <script type="text/javascript" src="/views/js/employee.js"></script>
-<link href="views/css/common.css" rel="stylesheet"></link>
-<link href="views/css/employee.css" rel="stylesheet"></link>
 
 <div class="row">
 

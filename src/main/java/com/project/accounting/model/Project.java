@@ -24,7 +24,7 @@ private String projectName;
 private String projectAddress;
 
 @Column(name = "start")
-private Date projectStart;
+private Date startDate;
 
 @Column(name = "finish")
 private Date finishDate;
@@ -70,12 +70,12 @@ public void setProjectAddress(String projectAddress) {
 	this.projectAddress = projectAddress;
 }
 
-public Date getProjectStart() {
-	return projectStart;
+public Date getStartDate() {
+	return startDate;
 }
 
-public void setProjectStart(Date projectStart) {
-	this.projectStart = projectStart;
+public void setStartDate(Date startDate) {
+	this.startDate = startDate;
 }
 
 public Date getFinishDate() {
@@ -118,7 +118,7 @@ public String toString() {
 			", projectCode='" + projectCode + '\'' +
 			", projectName='" + projectName + '\'' +
 			", projectAddress='" + projectAddress + '\'' +
-			", projectStart=" + projectStart +
+			", startDate=" + startDate +
 			", finishDate=" + finishDate +
 			", company=" + company +
 			", enabled=" + enabled +

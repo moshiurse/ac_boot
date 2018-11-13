@@ -5,8 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="application/javascript" src="views/js/finyear.js"></script>
-<link href="views/css/common.css" rel="stylesheet"></link>
-<link href="views/css/finyear.css" rel="stylesheet"></link>
 </head>
 <body>
 

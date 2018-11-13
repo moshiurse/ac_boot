@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="views/css/common.css" rel="stylesheet"></link>
-<link href="views/css/login.css" rel="stylesheet"></link>
 
 </head>
 <body>

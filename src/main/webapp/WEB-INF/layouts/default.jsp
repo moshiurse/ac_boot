@@ -19,32 +19,13 @@
 	body{
 		background: linear-gradient(to right, #C8E8FA,#3FBBF4);
 	}
-
-    #myVideo {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-    }
-    .content {
-        position: fixed;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        color: #f1f1f1;
-        width: 100%;
-        padding: 20px;
-    }
-
-
     </style>
-
-
    
     <!-- Bootstrap and fontawesome core CSS -->
     <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="/views/css/common.css" rel="stylesheet"></link>
+    <!-- Common Css for All View Pages -->
+    <link href="/views/css/common.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/software-main.css" rel="stylesheet">
     <link href="/css/jquery.dataTables.min.css" rel="stylesheet">

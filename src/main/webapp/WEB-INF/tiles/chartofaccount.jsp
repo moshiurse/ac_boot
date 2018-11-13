@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" src="/views/js/chartofaccount.js"></script>
-<link href="views/css/common.css" rel="stylesheet"></link>
 
 </head>
 <body>

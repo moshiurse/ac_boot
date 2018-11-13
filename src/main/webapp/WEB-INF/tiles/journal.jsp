@@ -110,7 +110,6 @@
             </div>
                  <input type="submit" class="btn btn-lg btn-acc" value="ADD" id="add">
                  <input type="submit" class="btn btn-lg btn-acc" value="Finish" id="finish">
-                 <%--<a href="" class="btn btn-lg btn-acc" id="add">Random</a>--%>
             
    <table class="table table-bordered text-center">
     <thead>

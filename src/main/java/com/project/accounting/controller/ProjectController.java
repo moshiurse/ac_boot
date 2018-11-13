@@ -45,7 +45,18 @@ public class ProjectController {
 		}
 	}
 
-	@GetMapping("/showActive")
+@GetMapping(value="/show")
+public @ResponseBody List<Project> showAllCompany(){
+	try {
+		return projectService.getAllProject();
+	} catch (Exception e) {
+		e.printStackTrace();
+		return null;
+	}
+}
+
+
+@GetMapping("/showActive")
 	public @ResponseBody List<Project> showActiveByCompany(){
 		try {
 			int company = 1;
