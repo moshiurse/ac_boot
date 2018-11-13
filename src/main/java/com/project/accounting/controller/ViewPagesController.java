@@ -90,5 +90,12 @@ public class ViewPagesController {
 		
 		return "pdftest";
 	}
+	@RequestMapping("/companycreated")
+	public String showCreatedCompany() {
+
+		return "companycreated";
+	}
+
+
 
 }

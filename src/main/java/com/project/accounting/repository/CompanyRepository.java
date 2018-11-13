@@ -9,5 +9,4 @@ import java.util.List;
 public interface CompanyRepository extends JpaRepository<Company, Integer>{
 
 
-
 }

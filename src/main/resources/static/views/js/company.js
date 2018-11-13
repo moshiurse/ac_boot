@@ -10,56 +10,70 @@ $(document).ready(function(){
 		var cphone = $.trim($('#cphone').val());
 		var cfax = $.trim($('#cfax').val());
 		var cwebsite = $.trim($('#cwebsite').val());
-		var clogo = $.trim($('#clogo').val());
+
+        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
 		
 		if(cname == ""){
-			$("ercname").text("Please Enter a Name");
+            $('#cname').addClass("invalid");
+            $('#cname').removeClass("valid");
+			$(".errormsg").text("Please Enter a Name");
 			return false;
 		}else if(cemail == ""){
-			$("ercemail").text("Please Enter an Email");
+            $('#ceamil').addClass("invalid");
+            $('#ceamil').removeClass("valid");
+			$(".errormsg").text("Please Enter an Email");
 			return false;
-		}else if(caddress == ""){
-			$("eraddress").text("Please Enter an Address");
+		}else if(!pattern.test(cemail)){
+            $('#ceamil').addClass("invalid");
+            $('#ceamil').removeClass("valid");
+            $(".errormsg").text("Please Enter a Valid Email");
+            return false;
+        }else if(caddress == ""){
+            $('#caddress').addClass("invalid");
+            $('#caddress').removeClass("valid");
+			$(".errormsg").text("Please Enter an Address");
 			return false;
 		}else if(cphone == ""){
-			$("ercphone").text("Please Enter a Phone Number");
+            $('#cphone').addClass("invalid");
+            $('#cphone').removeClass("valid");
+			$(".errormsg").text("Please Enter a Phone Number");
 			return false;
+		}else{
+            alert("Validation True");
+            return true;
 		}
-		
-		return true;
-		
 	}
 
-//	------------------  Validation  --------------------
+//	------------------End Validation  --------------------
 	
 	$("#createcompany").click(function(event){
 		if(validation()){
 			var data = {};
-			
-			data["caId"] = $.trim($("#headid").val());
-			data["caName"] = $.trim($("#headname").val());
-			data["caParent"] = $.trim($("#parent").val());
-			data["caType"] = $.trim($("#type").val());
-			
+
+			data["companyName"] = $.trim($('#cname').val());
+			data["companyAddress"] = $.trim($('#caddress').val());
+			data["companyEmail"] = $.trim($('#cemail').val());
+			data["companyPhone "] = $.trim($('#cphone').val());
+			data["companyFax"] = $.trim($('#cfax').val());
+			data["companyWebsite"] = $.trim($('#cwebsite').val());
+
+			alert(JSON.stringify(data));
 			$.ajax({
 				type: "POST",
-				url: "/saveCompany",
+				url: "/company/save",
 				data: JSON.stringify(data),
 				contentType: "application/json; charset=utf-8",
 				success: function(){
-					$("#successmsg").removeClass("hidden");
-					$("#errormsg").addClass("hidden");
+					alert("Successfully Created Company");
+					window.location.replace("/companycreated");
 				},
 				error: function(){
-					$("#errormsg").removeClass("hidden");
-					$("#successmsg").addClass("hidden");
-					alert(JSON.stringify(data));
+                    $("#errormsg").text("Failed to create company");
+					// alert("Error" +JSON.stringify(data));
 				}
 			});
-			alert("Successfull");
 			
 		}
-		alert("Clicked");
 	});
 	
 });

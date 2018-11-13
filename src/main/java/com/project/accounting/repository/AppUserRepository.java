@@ -39,7 +39,8 @@ public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 	@Query("update AppUser u set u.enabled = 0 where u.id = :id and u.company = :company ")
 	void deleteUser(@Param("id") Long id,@Param("company") int company);
 
-	@Query("select u from AppUser u where u.email = \':email\' or u.userName = \':userName\'")
-	boolean isUserExists(String email, String userName);
+	@Query("update AppUser u set u.company = :company where u.id = :id")
+	void addCompanyToUser(@Param("id") Long id ,@Param("company") int company);
+
 
 }

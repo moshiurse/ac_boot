@@ -40,6 +40,13 @@ public class Company {
 	@Column(name="web_site")
 	private String companyWebsite;
 
+	@Column(name = "enabled")
+	private int enabled;
+
+	@Column(name = "created_by")
+	private String createdBy;
+
+
 	public int getId() {
 		return id;
 	}
@@ -112,16 +119,37 @@ public class Company {
 		this.companyWebsite = companyWebsite;
 	}
 
-	@Override
-	public String toString() {
-		return "Company [id=" + id + ", companyName=" + companyName + ", companyAddress=" + companyAddress
-				+ ", companyEmail=" + companyEmail + ", companyPhone=" + companyPhone + ", companyFax=" + companyFax
-				+ ", companyNote=" + companyNote + ", companyLogo=" + companyLogo + ", companyWebsite=" + companyWebsite
-				+ "]";
-	}
-	
-	
-	
-	
+public int getEnabled() {
+	return enabled;
+}
+
+public void setEnabled(int enabled) {
+	this.enabled = enabled;
+}
+
+public String getCreatedBy() {
+	return createdBy;
+}
+
+public void setCreatedBy(String createdBy) {
+	this.createdBy = createdBy;
+}
+
+@Override
+public String toString() {
+	return "Company{" +
+			"id=" + id +
+			", companyName='" + companyName + '\'' +
+			", companyAddress='" + companyAddress + '\'' +
+			", companyEmail='" + companyEmail + '\'' +
+			", companyPhone='" + companyPhone + '\'' +
+			", companyFax='" + companyFax + '\'' +
+			", companyNote='" + companyNote + '\'' +
+			", companyLogo='" + companyLogo + '\'' +
+			", companyWebsite='" + companyWebsite + '\'' +
+			", enabled=" + enabled +
+			", createdBy='" + createdBy + '\'' +
+			'}';
+}
 
 }

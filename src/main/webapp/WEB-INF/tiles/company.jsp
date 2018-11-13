@@ -18,7 +18,8 @@
             <hr>
         </div>
         <div class="card-body text-center">
-            <form action="">
+            <form action="" method="post">
+                <h3 class="bg-danger errormsg"></h3>
                 <div class="form-group">
                 	<label>Company Name </label>
                     <input required type="text" class="form-control form-control-lg"
@@ -29,7 +30,7 @@
                 <div class="form-group">
                 	<label>Company Email </label>
                     <input required type="text" class="form-control form-control-lg"
-                     placeholder="Company Email" name="cemail" id="ceamil">
+                     placeholder="Company Email" name="cemail" id="cemail">
                      <span class="error" id="ercemail"></span>
                 </div>
                 
@@ -59,13 +60,6 @@
                     <input type="text" class="form-control form-control-lg"
                      placeholder="Website" name="cwebsite" id="cwebsite">
                      <span class="error" id="ercwebsite"></span>
-                </div>
-                
-                <div class="form-group">
-                <label>Upload a logo</label>
-                    <input required type="file" class="form-control" name="clogo" id="clogo">
-                    <a href="#" class="btn btn-warning">Upload</a>
-                    <span class="error" id="erclogo"></span>
                 </div>
                 
                 <input type="submit" class="btn btn-lg btn-acc" 

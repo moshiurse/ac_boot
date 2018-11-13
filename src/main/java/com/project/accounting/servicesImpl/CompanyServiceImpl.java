@@ -22,18 +22,6 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 
 	@Override
-	public Company updateCompany(Company company) {
-		company = companyRepository.findById(company.getId()).get();
-		return companyRepository.save(company);
-	}
-
-	@Override
-	public void deleteCompany(Company company) {
-		Company companyId = companyRepository.findById(company.getId()).get();
-		companyRepository.delete(companyId);
-	}
-
-	@Override
 	public List<Company> getAllCompany() {
 
 		return companyRepository.findAll();

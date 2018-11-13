@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.project.accounting.model.AppUser;
@@ -72,6 +71,16 @@ public class AppUserServiceImpl implements AppUserService{
 			}
 		return false;
 	}
+
+@Override
+public void addCompanyToUser(Long id, int company) {
+	appUserRepository.addCompanyToUser(id, company);
+}
+
+@Override
+public Optional<AppUser> findById(Long id) {
+	return appUserRepository.findById(id);
+}
 
 
 }

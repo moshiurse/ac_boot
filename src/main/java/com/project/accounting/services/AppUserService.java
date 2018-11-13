@@ -24,5 +24,9 @@ public interface AppUserService {
 	Optional<AppUser> getUserById(Long id);
 
 	boolean isUserExists(String username, String email);
+
+	void addCompanyToUser(Long id, int company);
+
+	Optional<AppUser> findById(Long id);
 	
 }
