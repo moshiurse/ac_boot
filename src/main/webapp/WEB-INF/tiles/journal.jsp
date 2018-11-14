@@ -20,7 +20,7 @@
            	<hr>
         </div>
         <div class="card-body">
-            <form action="">
+            <form action="" method="post">
             <div class="row">
             <h3></h3>
             </div>   
@@ -54,7 +54,13 @@
             </div>
             <label class="col-md-2 control-label">Project: </label>
             <div class="col-md-4">
-            <div id="journalproject"></div>
+            <%--<div id="journalproject"></div>--%>
+                <select class="form-control" id="project" name="project">
+                    <option value="0">Select Project</option>
+                    <option value="1">Account</option>
+                    <option value="2">Finance</option>
+                    <option value="3">HR</option>
+                </select>
             <span class="error" id="erproject"></span>
             </div>            
             </div>

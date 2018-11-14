@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="acc_bank_info")
+@Table(name="bank_info")
 public class BankInfo {
 	
 	@Id
@@ -33,6 +33,9 @@ public class BankInfo {
 	
 	@Column(name ="web_url")
 	private String bankUrl;
+
+	@Column(name = "enabled")
+	private int enabled;
 	
 	@Column(name ="created_by")
 	private String createdBy;
@@ -101,14 +104,26 @@ public class BankInfo {
 		this.createdBy = createdBy;
 	}
 
-	@Override
-	public String toString() {
-		return "BankInfo [id=" + id + ", bankName=" + bankName + ", bankShortName=" + bankShortName + ", bankContact="
-				+ bankContact + ", bankEmail=" + bankEmail + ", bankFaxNo=" + bankFaxNo + ", bankUrl=" + bankUrl
-				+ ", createdBy=" + createdBy + "]";
-	}
+public int getEnabled() {
+	return enabled;
+}
 
-	
-	
+public void setEnabled(int enabled) {
+	this.enabled = enabled;
+}
 
+@Override
+public String toString() {
+	return "BankInfo{" +
+			"id=" + id +
+			", bankName='" + bankName + '\'' +
+			", bankShortName='" + bankShortName + '\'' +
+			", bankContact='" + bankContact + '\'' +
+			", bankEmail='" + bankEmail + '\'' +
+			", bankFaxNo='" + bankFaxNo + '\'' +
+			", bankUrl='" + bankUrl + '\'' +
+			", enabled=" + enabled +
+			", createdBy='" + createdBy + '\'' +
+			'}';
+}
 }

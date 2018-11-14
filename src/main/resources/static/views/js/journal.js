@@ -4,7 +4,7 @@
 		initial();
 		checkedBox();
 		showCa();
-		showProject();
+		// showProject();
 		// checkCa();
 
 		
@@ -90,7 +90,7 @@
 		
 
 //--------------------Start - Project Code to combo box----------------------
-		function showProject() {
+/*		function showProject() {
 			
 			$.post("project/showActive", function(project){
 				
@@ -106,6 +106,7 @@
 			
 			});
 		}
+		*/
 //--------------------End - Project Code to combo box----------------------
 
 		//--------------------Start - Project Code to combo box----------------------

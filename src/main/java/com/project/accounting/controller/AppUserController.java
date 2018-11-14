@@ -55,7 +55,7 @@ public class AppUserController {
 	}
 
 	@GetMapping("/all")
-	public @ResponseBody List<AppUser> getAllAppUser(){
+	public @ResponseBody List<AppUser> getAllAppUserByCompany(){
 		int company =1;
 		return appUserService.showActiveUserBycompany(company);
 	}

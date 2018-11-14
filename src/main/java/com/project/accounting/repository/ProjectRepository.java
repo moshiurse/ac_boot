@@ -16,7 +16,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long>{
 List<Project> findByCompany(int company);
 
 @Query("select p from Project p where p.company = :company and p.enabled = 1")
-
 List<Project> showActiveProjectByCompany(@Param("company") int company);
 
 @Query("select p from Project p where p.enabled = 1")

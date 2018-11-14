@@ -10,13 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="acc_bank_account")
+@Table(name="bank_account")
 public class BankAccount implements Serializable{
 	
 	@Id
 	@Column(name="account_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int accountId;
+	private Long accountId;
 	
 	@Id
 	@Column(name="bank_id")
@@ -34,7 +34,7 @@ public class BankAccount implements Serializable{
 	
 	@Id
 	@Column(name="company_id")
-	private int companyId;
+	private int company;
 	
 	@Column(name="display")
 	private int display;
@@ -42,11 +42,11 @@ public class BankAccount implements Serializable{
 	@Column(name="created_by")
 	private String createdBy;
 
-	public int getAccountId() {
+	public Long getAccountId() {
 		return accountId;
 	}
 
-	public void setAccountId(int accountId) {
+	public void setAccountId(Long accountId) {
 		this.accountId = accountId;
 	}
 
@@ -82,12 +82,12 @@ public class BankAccount implements Serializable{
 		this.bankAccountCode = bankAccountCode;
 	}
 
-	public int getCompanyId() {
-		return companyId;
+	public int getCompany() {
+		return company;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setCompany(int company) {
+		this.company = company;
 	}
 
 	public int getDisplay() {
@@ -109,7 +109,7 @@ public class BankAccount implements Serializable{
 	@Override
 	public String toString() {
 		return "BankAccount [accountId=" + accountId + ", bankId=" + bankId + ", accountNo=" + accountNo + ", branch="
-				+ branch + ", bankAccountCode=" + bankAccountCode + ", companyId=" + companyId + ", display=" + display
+				+ branch + ", bankAccountCode=" + bankAccountCode + ", company=" + company + ", display=" + display
 				+ ", createdBy=" + createdBy + "]";
 	}
 	

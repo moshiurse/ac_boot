@@ -13,6 +13,7 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 
 public interface FinYearRepository extends JpaRepository<FinYear, Long> {
+
 //	Find Fin year By Company
 	List<FinYear> findByCompany(int company);
 
